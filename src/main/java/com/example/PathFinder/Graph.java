@@ -18,17 +18,17 @@ public class Graph {
         this.adjacencyList = adjacencyList;
     }
 
-    public static Path shortestPath (Graph graph, String startNodeID, String finishNodeID) throws IllegalArgumentException {
+    public static Path shortestPath (Graph graph, long startNodeID, long finishNodeID) throws IllegalArgumentException {
         Set<Node> nodes = graph.getAdjacencyList().keySet();
         HashMap<Node, Double> distances = new HashMap<>();
         Node startNode = null;
         Node finishNode = null;
         for (Node node : nodes) {
             distances.put(node, Double.POSITIVE_INFINITY);
-            if (node.getId().equals(startNodeID)) {
+            if (node.getId() == startNodeID) {
                 startNode = node;
             }
-            if (node.getId().equals(finishNodeID)) {
+            if (node.getId() == finishNodeID) {
                 finishNode = node;
             }
         }
@@ -77,6 +77,12 @@ public class Graph {
         return new Path(path, distances.get(finishNode));
 
 
+    }
+
+    public static Path shortestPath (Graph graph, String startNodeIDString, String finishNodeIDString) throws IllegalArgumentException {
+        long startNodeID = Long.parseLong(startNodeIDString);
+        long finishNodeID = Long.parseLong(finishNodeIDString);
+        return shortestPath(graph, startNodeID, finishNodeID);
     }
 
 

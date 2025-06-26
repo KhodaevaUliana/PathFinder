@@ -13,8 +13,11 @@ java {
 	}
 }
 
+
 repositories {
 	mavenCentral()
+	maven { url 'https://mvn.topobyte.de' }
+	maven { url 'https://mvn.slimjars.com/' }
 }
 
 dependencies {
@@ -22,7 +25,10 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation 'de.topobyte:osm4j-core:1.4.1'
+	implementation 'de.topobyte:osm4j-pbf:1.4.1'
 }
+
 
 tasks.named('test') {
 	useJUnitPlatform()
