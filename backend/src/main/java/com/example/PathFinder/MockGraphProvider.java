@@ -5,13 +5,13 @@ import java.util.List;
 
 public class MockGraphProvider {
     public static Graph createSampleGraph() {
-        Node A = new Node("A", 50.0, 10.0);
-        Node B = new Node("B", 50.0, 12.0);
-        Node C = new Node("C", 49.0, 10.0);
-        Node D = new Node("D", 50.0, 10.0);
-        Node E = new Node("E", 48.0, 13.0);
-        Node F = new Node("F", 30.0, 50.0);
-        Node G = new Node("G", 30.0, 48.0);
+        Node A = new Node("1", 50.0, 10.0);
+        Node B = new Node("2", 50.0, 12.0);
+        Node C = new Node("3", 49.0, 10.0);
+        Node D = new Node("4", 50.0, 10.0);
+        Node E = new Node("5", 48.0, 13.0);
+        Node F = new Node("6", 30.0, 50.0);
+        Node G = new Node("7", 30.0, 48.0);
         HashMap<Node, List<Edge>> adjacencyList = new HashMap<>();
 
         adjacencyList.put(A, List.of(new Edge(A, B, 7), new Edge(A, E, 1)));

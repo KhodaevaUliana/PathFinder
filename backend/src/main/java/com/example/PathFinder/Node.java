@@ -3,21 +3,27 @@ package com.example.PathFinder;
 import java.util.Objects;
 
 public class Node {
-    private String id;
+    private long id;
     private double latitude;
     private double longitude;
 
-    public Node(String id, double latitude, double longitude) {
+    public Node(long id, double latitude, double longitude) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public String getId() {
+    public Node(String id, double latitude, double longitude) {
+        this.id = Long.parseLong(id);
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -46,7 +52,7 @@ public class Node {
 
     @Override
     public String toString() {
-        return this.id;
+        return Long.valueOf(this.id).toString();
     }
 
     @Override

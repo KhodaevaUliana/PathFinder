@@ -11,13 +11,13 @@ public class GraphTest {
 
     @BeforeEach
     public void setUp() {
-        A = new Node("A", 50.0, 10.0);
-        B = new Node("B", 50.0, 12.0);
-        C = new Node("C", 49.0, 10.0);
-        D = new Node("D", 50.0, 10.0);
-        E = new Node("E", 48.0, 13.0);
-        F = new Node("F", 30.0, 50.0);
-        G = new Node("G", 30.0, 48.0);
+        A = new Node("1", 50.0, 10.0);
+        B = new Node("2", 50.0, 12.0);
+        C = new Node("3", 49.0, 10.0);
+        D = new Node("4", 50.0, 10.0);
+        E = new Node("5", 48.0, 13.0);
+        F = new Node("6", 30.0, 50.0);
+        G = new Node("7", 30.0, 48.0);
         graph = MockGraphProvider.createSampleGraph();
     }
 
@@ -25,7 +25,7 @@ public class GraphTest {
     public void shortestPathAB() {
         Path result = null;
         try {
-            result = Graph.shortestPath(this.graph, "A", "B");
+            result = Graph.shortestPath(this.graph, "1", "2");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -37,7 +37,7 @@ public class GraphTest {
     public void shortestPathAE() {
         Path result = null;
         try {
-            result = Graph.shortestPath(this.graph, "A", "E");
+            result = Graph.shortestPath(this.graph, "1", "5");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -49,7 +49,7 @@ public class GraphTest {
     public void shortestPathDA() {
         Path result = null;
         try {
-            result = Graph.shortestPath(this.graph, "D", "A");
+            result = Graph.shortestPath(this.graph, "4", "1");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -61,7 +61,7 @@ public class GraphTest {
     public void shortestPathEC() {
         Path result = null;
         try {
-            result = Graph.shortestPath(this.graph, "E", "C");
+            result = Graph.shortestPath(this.graph, "5", "3");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -73,7 +73,7 @@ public class GraphTest {
     public void shortestPathFail() {
         Path result = null;
         try {
-            result = Graph.shortestPath(this.graph, "X", "A");
+            result = Graph.shortestPath(this.graph, "12", "1");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -85,7 +85,7 @@ public class GraphTest {
     public void shortestPathFG() {
         Path result = null;
         try {
-            result = Graph.shortestPath(this.graph, "F", "G");
+            result = Graph.shortestPath(this.graph, "6", "7");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -97,7 +97,7 @@ public class GraphTest {
     public void shortestPathAG() {
         Path result = null;
         try {
-            result = Graph.shortestPath(this.graph, "A", "G");
+            result = Graph.shortestPath(this.graph, "1", "7");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
