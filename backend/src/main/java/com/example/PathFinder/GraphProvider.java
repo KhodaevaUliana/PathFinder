@@ -25,7 +25,9 @@ public class GraphProvider {
             String filePath = path.toString();
             OsmParser parser = new OsmParser(filePath);
             this.graph = new Graph(parser.getAdjacencyList());
-            buildSpatialIndex(parser.getNodes().values());
+            //be careful here: not nodes but key set of adjacency list:
+            // there are quite many nodes without connections
+            buildSpatialIndex(parser.getAdjacencyList().keySet());
         } catch (URISyntaxException exception) {
             System.out.println(exception.getMessage());
         }
@@ -50,14 +52,14 @@ public class GraphProvider {
     }
 
     public Node findNearestNode(double queryParamLatitude, double queryParamLongitude) {
-        double searchRadiusLatitude = 0.001; //~100 m
-        //longitude search window depends on the latitude, but we also keep it ~100 m
-        double searchRadiusLongitude = 0.001/Math.cos(Math.toRadians(0.5*(queryParamLatitude + queryParamLongitude)));
+        double searchRadiusLatitude = 0.0005; //~50 m
+        //longitude search window depends on the latitude, but we also keep it ~50 m
+        double searchRadiusLongitude = 0.0005/Math.cos(Math.toRadians(0.5*(queryParamLatitude + queryParamLongitude)));
 
         Node nearestNode = null;
         double nearestDistance = Double.MAX_VALUE;
 
-        //search area: a rectangle ~200m X 200m with the point in the query as the center
+        //search area: a rectangle ~100m X 100m with the point in the query as the center
         Envelope searchEnvelope = new Envelope(queryParamLongitude - searchRadiusLongitude,
                 queryParamLongitude + searchRadiusLongitude, queryParamLatitude - searchRadiusLatitude,
                 queryParamLatitude + searchRadiusLatitude);
@@ -82,6 +84,23 @@ public class GraphProvider {
         }
         return nearestNode;
 
+    }
+
+    public Path shortestPathBetweenTwoPoints(double latitudeStart, double longitudeStart,
+                                             double latitudeFinish, double longitudeFinish) throws Exception {
+        //find the nearest node to the start
+        Node startNode = findNearestNode(latitudeStart, longitudeStart);
+        if (startNode == null) {
+            throw new Exception("Start of the route is outside the map");
+        }
+        //find the nearest node to the finish
+        Node finishNode = findNearestNode(latitudeFinish, longitudeFinish);
+        if (finishNode == null) {
+            throw new Exception("Finish of the route is outside the map");
+        }
+
+        //replace Dijkstra with A*!!!
+        return Graph.shortestPath(graph, startNode, finishNode);
 
     }
 }
