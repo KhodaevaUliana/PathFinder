@@ -50,9 +50,14 @@ public class Node {
         return Math.sqrt(deltaLatitude * deltaLatitude + deltaLongitude * deltaLongitude);
     }
 
+
     @Override
     public String toString() {
-        return Long.valueOf(this.id).toString();
+        return "Node{" +
+                "id=" + id +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                '}';
     }
 
     @Override
