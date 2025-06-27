@@ -6,20 +6,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.*;
 
 public class OsmParserTest {
-    private String path = "src/main/resources/monaco-latest.osm.pbf";
-    private OsmParser parser;
+    private final String path = "src/main/resources/monaco-latest.osm.pbf";
+    private final OsmParser parser = new OsmParser(path);;
 
-    @BeforeEach
-    public void setUp() {
-        this.parser = new OsmParser(path);
-    }
 
     @Test
-    public void parseNodesTest() {
-        int numberOfNodes = this.parser.parseNodes().size();
-        System.out.println(numberOfNodes);
-        assertEquals(numberOfNodes > 0, true);
+    public void getNodes() {
+        int numOfNodes = parser.getNodes().size();
+        System.out.println("Number of nodes: " + numOfNodes);
+        assertEquals(true, numOfNodes > 0);
     }
+
+   @Test
+    public void getMap() {
+        HashMap<Node, List<Edge>> adjacencyList = parser.getAdjacencyList();
+        int numOfEdges = adjacencyList.keySet().stream().
+                map(el -> adjacencyList.get(el).size()).reduce(0, Integer::sum);
+        System.out.println("Number of edges: " + numOfEdges);
+        assertEquals(true, numOfEdges > 0);
+
+    }
+
 
 
 }
