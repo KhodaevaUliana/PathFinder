@@ -20,6 +20,7 @@ public class OsmParserTest {
    @Test
     public void getMap() {
         HashMap<Node, List<Edge>> adjacencyList = parser.getAdjacencyList();
+        System.out.println("Number of nodes in adjacency list: " + adjacencyList.size());
         int numOfEdges = adjacencyList.keySet().stream().
                 map(el -> adjacencyList.get(el).size()).reduce(0, Integer::sum);
         System.out.println("Number of edges: " + numOfEdges);
