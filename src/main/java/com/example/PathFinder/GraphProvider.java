@@ -87,16 +87,16 @@ public class GraphProvider {
     }
 
     public Path shortestPathBetweenTwoPoints(double latitudeStart, double longitudeStart,
-                                             double latitudeFinish, double longitudeFinish) throws Exception {
+                                             double latitudeFinish, double longitudeFinish) throws IllegalArgumentException {
         //find the nearest node to the start
         Node startNode = findNearestNode(latitudeStart, longitudeStart);
         if (startNode == null) {
-            throw new Exception("Start of the route is outside the map");
+            throw new IllegalArgumentException("Start of the route is outside the map");
         }
         //find the nearest node to the finish
         Node finishNode = findNearestNode(latitudeFinish, longitudeFinish);
         if (finishNode == null) {
-            throw new Exception("Finish of the route is outside the map");
+            throw new IllegalArgumentException("Finish of the route is outside the map");
         }
 
         //replace Dijkstra with A*!!!
