@@ -27,6 +27,7 @@ function ClickHandler({onClick}) {
   return null;
 }
 
+
 function App() {
   const [route, setRoute] = useState([]);
   const [points, setPoints] = useState([]);
@@ -42,6 +43,12 @@ function App() {
     } else {
       setPoints([newPoint]); //if we already have 2 points, we start fresh
     }
+  };
+
+  //delete route and start/finish marks when we click on 'Refresh button'
+  const handleRefresh = () => {
+    setPoints([]);
+    setRoute([]);
   };
 
   useEffect(() => {
@@ -65,6 +72,9 @@ function App() {
       <div>
         <h1>Let's explore Monaco together! </h1>
         <h2> Click two points to see a route </h2>
+        <button onClick={handleRefresh} style={{ margin: '20px', color: 'magenta', fontWeight: 'bold', fontSize: '20px' }}>
+          Refresh
+        </button>
         <MapContainer center={[43.735, 7.42]} zoom={15} style={{ height: '90vh', width: '100%' }}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
