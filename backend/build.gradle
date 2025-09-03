@@ -22,8 +22,13 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.security:spring-security-crypto'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.postgresql:postgresql'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'com.h2database:h2'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation 'de.topobyte:osm4j-core:1.4.1'
 	implementation 'de.topobyte:osm4j-pbf:1.4.1'
