@@ -1,0 +1,8 @@
+spring.application.name=PathFinder
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/pathfinder
+spring.datasource.username=YOUR_DB_USER
+spring.datasource.password=YOUR_DB_PASSWORD
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
