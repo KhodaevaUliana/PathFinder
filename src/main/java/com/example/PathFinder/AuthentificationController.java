@@ -40,10 +40,5 @@ public class AuthentificationController {
         return ResponseEntity.ok("User created successfully.");
     }
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello";
-    }
-
 
 }

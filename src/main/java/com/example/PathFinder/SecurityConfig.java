@@ -42,32 +42,18 @@ public class SecurityConfig {
     }
 
     //enable signup/login
-    /*@Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .cors(Customizer.withDefaults())  // enable Spring Security CORS
-                .csrf(csrf -> csrf.disable())     // disable CSRF
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**").permitAll()  // allow signup/login
-                        .requestMatchers("/hello").permitAll()    // allow test endpoint
-                        .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll() // allow all OPTIONS
-                        .anyRequest().authenticated()
-                )
-                .httpBasic(AbstractHttpConfigurer::disable)
-                .formLogin(AbstractHttpConfigurer::disable);
-
-        return http.build();
-    }*/
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
-                        .anyRequest().permitAll()
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
-                .httpBasic(AbstractHttpConfigurer::disable)
-                .formLogin(AbstractHttpConfigurer::disable);
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/auth/**").permitAll()
+                        .anyRequest().authenticated()
+                )
+                .httpBasic(Customizer.withDefaults()); // basic auth for now
 
         return http.build();
     }
