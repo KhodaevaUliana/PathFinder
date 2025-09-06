@@ -1,6 +1,9 @@
-package com.example.PathFinder;
+package com.example.PathFinder.controller;
 
 
+import com.example.PathFinder.Graph;
+import com.example.PathFinder.MockGraphProvider;
+import com.example.PathFinder.Path;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
