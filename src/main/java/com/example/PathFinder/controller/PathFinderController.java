@@ -1,6 +1,8 @@
-package com.example.PathFinder;
+package com.example.PathFinder.controller;
 
 
+import com.example.PathFinder.GraphProvider;
+import com.example.PathFinder.Path;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.example.PathFinder;
+package com.example.PathFinder.config;
 
 
 import org.springframework.context.annotation.Bean;
