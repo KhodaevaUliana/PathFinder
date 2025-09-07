@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Polyline, Marker, Popup, useMapEvents, Tooltip } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import LogIn from './AuthForm';
 
 //here, we are manually setting the marker icon since the default appeared as a broken image
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
@@ -33,6 +34,23 @@ function App() {
   const [points, setPoints] = useState([]);
   const [distance, setDistance] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
+  //log-in info
+  const [token, setToken] = useState("");
+  const [signUpSuccess, setSignUpSuccess] = useState(false);
+
+  const handleLogin = (jwt) => {
+    setToken(jwt);
+    setSignUpSuccess(false);
+  };
+
+  const handleLogOut = () => {
+    setToken("");
+  };
+
+  const handleSignup = () => {
+    setSignUpSuccess(true);
+  };
+
 
 
 
@@ -56,6 +74,8 @@ function App() {
     setDistance(null);
     setErrorMessage(null);
   };
+
+
 
   useEffect(() => {
     if (points.length == 2) {
@@ -93,12 +113,31 @@ function App() {
 
 
   return (
-      <div>
-        <h1>Let's explore Monaco together! </h1>
-        <h2> {errorMessage ? errorMessage : message } </h2>
-        <button onClick={handleRefresh} style={{ margin: '20px', color: 'magenta', fontWeight: 'bold', fontSize: '20px' }}>
-          Refresh
-        </button>
+      <div className = "container">
+        <div className = "header">
+          <h1>Let's explore Monaco together! </h1>
+          <h2> {errorMessage ? errorMessage : message } </h2>
+          <button onClick={handleRefresh} style={{ margin: '20px', color: 'magenta', fontWeight: 'bold', fontSize: '20px' }}>
+            Refresh
+          </button>
+        </div>
+
+
+        <div className = "login">
+          {token ? (
+          <div>
+          <h2> You are logged in </h2>
+          <button onClick={handleLogOut} className = "auth-button"> Log out </button>
+          </div>
+          ) : (
+          <div>
+          <LogIn onLogin = {handleLogin} onSignup = {handleSignup}/>
+          {signUpSuccess && <p className = "error"> You've signed up successfully </p>}
+          </div>
+          )}
+        </div>
+
+        <div className = "map">
         <MapContainer center={[43.735, 7.42]} zoom={15} style={{ height: '70vh', width: '100%' }}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -117,6 +156,7 @@ function App() {
             <Polyline positions={positions} color="blue" />
           )}
         </MapContainer>
+        </div>
       </div>
     );
 
