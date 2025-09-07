@@ -52,14 +52,14 @@ public class AuthentificationController {
     @PostMapping("/login")
     public ResponseEntity<String> logIn (@RequestBody LogInCredentials logInCredentials) {
         if (!userDetailsManager.userExists(logInCredentials.getUsername())) {
-            return ResponseEntity.badRequest().body("User doesn't exist.");
+            return ResponseEntity.badRequest().body("Wrong password or username");
         }
         UserDetails user = userDetailsManager.loadUserByUsername(logInCredentials.getUsername());
         if (passwordEncoder.matches(logInCredentials.getPassword(), user.getPassword())) {
             String token = JWTUtility.generateToken(user.getUsername());
             return ResponseEntity.ok(token);
         } else {
-            return ResponseEntity.badRequest().body("Wrong password");
+            return ResponseEntity.badRequest().body("Wrong password or username");
         }
     }
 
