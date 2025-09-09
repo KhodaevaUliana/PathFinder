@@ -34,6 +34,9 @@ public class AuthentificationController {
         if (userDetailsManager.userExists(logInCredentials.getUsername())) {
             return ResponseEntity.badRequest().body("User with this username already exists.");
         }
+        if (logInCredentials.getUsername().length() > 50) {
+            return ResponseEntity.badRequest().body("The username is too long (> 50 characters).");
+        }
         if (logInCredentials.getUsername().isEmpty()) {
             return ResponseEntity.badRequest().body("Please enter a non-empty username.");
         }
