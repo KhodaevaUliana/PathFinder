@@ -1,17 +1,39 @@
 package com.example.PathFinder;
 
-public class Route {
-    private long id;
-    private String username;
-    private String routeName;
-    private double distance;
-    private String routeJson;
+import jakarta.persistence.*;
+import org.hibernate.annotations.JdbcType;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
-    public long getId() {
+@Entity
+@Table(
+        name = "routes",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"username", "name"})
+)
+public class Route {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "username", nullable = false, length = 50)
+    private String username;
+
+    @Column(name = "name", nullable = false, length = 100)
+    private String routeName;
+
+    @Column(name = "distance")
+    private double distance;
+
+    @Column(name = "route_json", columnDefinition = "jsonb")
+    @JdbcTypeCode(SqlTypes.JSON)
+    private Path routeJson;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -39,11 +61,11 @@ public class Route {
         this.distance = distance;
     }
 
-    public String getRouteJson() {
+    public Path getRouteJson() {
         return routeJson;
     }
 
-    public void setRouteJson(String routeJson) {
+    public void setRouteJson(Path routeJson) {
         this.routeJson = routeJson;
     }
 }
