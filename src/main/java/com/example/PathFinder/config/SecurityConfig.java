@@ -3,6 +3,7 @@ package com.example.PathFinder.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -42,32 +43,43 @@ public class SecurityConfig {
         return manager;
     }
 
-    //enable signup/login
-   /* @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf(csrf -> csrf.disable())
-                .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                )
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**", "/route").permitAll()
-                        .anyRequest().authenticated()
-                );
-                .httpBasic(Customizer.withDefaults()); // basic auth for now
 
-        return http.build();
-    }*/
-
-    @Bean
+    /*@Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**", "/route").permitAll()
+                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/route").permitAll()
                         .anyRequest().authenticated()
-                );
+                )
+                .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()));
+
+        return http.build();
+    }*/
+
+    //avoid jwt auth for public endpoints
+    @Bean
+    @Order(1)
+    public SecurityFilterChain publicSecurityChain(HttpSecurity http) throws Exception {
+        http
+                .securityMatcher("/auth/**", "/route")
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
+
+        return http.build();
+    }
+
+    //check token for /saved_routes endpoint
+    @Bean
+    @Order(2)
+    public SecurityFilterChain jwtSecurityChain(HttpSecurity http) throws Exception {
+        http
+                .securityMatcher("/saved_routes/**")
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+                .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()));
 
         return http.build();
     }

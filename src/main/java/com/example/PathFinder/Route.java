@@ -1,5 +1,6 @@
 package com.example.PathFinder;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcType;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -20,6 +21,7 @@ public class Route {
     private String username;
 
     @Column(name = "name", nullable = false, length = 100)
+    @JsonProperty("name")
     private String routeName;
 
     @Column(name = "distance")

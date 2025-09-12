@@ -4,12 +4,13 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
+import javax.crypto.SecretKey;
 import java.security.Key;
 import java.util.Date;
 
 public class JWTUtility {
 
-    private static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    private static final SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
     public static String generateToken(String username) {
         return Jwts.builder()
@@ -27,6 +28,10 @@ public class JWTUtility {
                 .parseClaimsJws(token)
                 .getBody()
                 .getSubject();
+    }
+
+    public static SecretKey getKey() {
+        return key;
     }
 
 }

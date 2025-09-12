@@ -7,6 +7,10 @@ public class Node {
     private double latitude;
     private double longitude;
 
+    public Node() {
+
+    }
+
     public Node(long id, double latitude, double longitude) {
         this.id = id;
         this.latitude = latitude;
