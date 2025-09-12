@@ -1,6 +1,8 @@
-package com.example.PathFinder;
+package com.example.PathFinder.service;
 
 
+import com.example.PathFinder.Route;
+import com.example.PathFinder.repository.RouteRepository;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 

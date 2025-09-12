@@ -1,5 +1,7 @@
-package com.example.PathFinder;
+package com.example.PathFinder.controller;
 
+import com.example.PathFinder.Route;
+import com.example.PathFinder.service.RouteService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
