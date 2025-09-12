@@ -5,6 +5,7 @@ import { MapContainer, TileLayer, Polyline, Marker, Popup, useMapEvents, Tooltip
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import LogIn from './AuthForm';
+import LoggedIn from './LoggedIn';
 
 //here, we are manually setting the marker icon since the default appeared as a broken image
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
@@ -34,6 +35,9 @@ function App() {
   const [points, setPoints] = useState([]);
   const [distance, setDistance] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
+  //save routes
+  const [routeName, setRouteName] = useState([]);
+  const [routeSaveSuccess, setRouteSaveSuccess] = useState(true);
   //log-in info
   const [token, setToken] = useState("");
   const [signUpSuccess, setSignUpSuccess] = useState(false);
@@ -49,6 +53,39 @@ function App() {
 
   const handleSignup = () => {
     setSignUpSuccess(true);
+  };
+
+  const handleSaveRoute = (e) => {
+    e.preventDefault();
+
+    const routeToSave = {
+      name: routeName,
+      routeJson: {
+        nodes: route,
+        distance: distance
+      },
+      distance: distance
+    };
+
+    fetch("http://localhost:8080/saved_routes/save", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`   // JWT token from login
+      },
+      body: JSON.stringify(routeToSave)
+    })
+    .then(res => {
+      if (res.ok) {
+        setRouteSaveSuccess(true);
+      } else {
+        setRouteSaveSuccess(false);
+      }
+    })
+    .catch(err => {
+      setErrorMessage("Error saving route: " + err.message);
+    });
+
   };
 
 
@@ -71,6 +108,7 @@ function App() {
   const handleRefresh = () => {
     setPoints([]);
     setRoute([]);
+    setRouteName([]);
     setDistance(null);
     setErrorMessage(null);
   };
@@ -120,6 +158,22 @@ function App() {
           <button onClick={handleRefresh} style={{ margin: '20px', color: 'magenta', fontWeight: 'bold', fontSize: '20px' }}>
             Refresh
           </button>
+        </div>
+
+        <div className = "logged-in">
+         {token ? (
+           <div>
+             {route &&
+             <form>
+               <label> Name this route </label>
+               <input type="text" onChange = {(e) => setRouteName(e.target.value)}/>
+               <button type="submit" onClick = {(e) => handleSaveRoute(e)}> Save route </button>
+             </form>}
+             {!routeSaveSuccess && <h2> Route was not saved. Choose another name </h2>}
+           </div>
+         ) : (
+           <h2> Log in for some extra functionality! </h2>
+         )}
         </div>
 
 

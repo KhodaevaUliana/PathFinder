@@ -39,7 +39,7 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto;
   gap: 10px;
 }
@@ -51,8 +51,17 @@
   padding: 20px;
 }
 
-.login {
+.logged-in {
   grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+}
+
+.login {
+  grid-column: 3;
   grid-row: 1;
   display: flex;
   justify-content: flex-end;
@@ -62,7 +71,7 @@
 
 
 .map {
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 3;
   grid-row: 2;
 }
 
