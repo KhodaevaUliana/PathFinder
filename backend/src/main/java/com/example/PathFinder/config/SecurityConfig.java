@@ -44,26 +44,13 @@ public class SecurityConfig {
     }
 
 
-    /*@Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf(csrf -> csrf.disable())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**").permitAll()
-                        .requestMatchers("/route").permitAll()
-                        .anyRequest().authenticated()
-                )
-                .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()));
-
-        return http.build();
-    }*/
 
     //avoid jwt auth for public endpoints
     @Bean
     @Order(1)
     public SecurityFilterChain publicSecurityChain(HttpSecurity http) throws Exception {
         http
+                .cors(Customizer.withDefaults())
                 .securityMatcher("/auth/**", "/route")
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
@@ -76,6 +63,7 @@ public class SecurityConfig {
     @Order(2)
     public SecurityFilterChain jwtSecurityChain(HttpSecurity http) throws Exception {
         http
+                .cors(Customizer.withDefaults())
                 .securityMatcher("/saved_routes/**")
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
