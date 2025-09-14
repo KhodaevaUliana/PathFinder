@@ -18,9 +18,23 @@ export async function saveRoute(token, routeToSave) {
       },
       body: JSON.stringify(routeToSave)
     });
-    if (!response.ok) {
-      const errorMessage = await response.text();
-      throw new Error(errorMessage || "The route was not saved. Try another name");
+  if (!response.ok) {
+    const errorMessage = await response.text();
+    throw new Error(errorMessage || "The route was not saved. Try another name");
+  }
+  return response.ok;
+}
+
+export async function fetchRoutes(token) {
+  const response = await fetch("http://localhost:8080/saved_routes/fetch_list_of_routes", {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
     }
-    return response.ok;
+  });
+  if (!response.ok) {
+    const errorMessage = await response.text();
+    throw new Error(errorMessage);
+  }
+  return response.json();
 }

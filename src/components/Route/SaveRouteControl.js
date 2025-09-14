@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SaveRouteForm from "./SaveRouteForm";
 import { saveRoute } from "../../utils/api";
 
@@ -9,7 +8,7 @@ export default function SaveRouteControl({ token, route, distance  }) {
   const [newRouteToSave, setNewRouteToSave] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  React.useEffect(() => {
+  useEffect(() => {
     setRouteName("");
     setErrorMessage("");
     setRouteSaveAttempted(false);
@@ -23,7 +22,6 @@ export default function SaveRouteControl({ token, route, distance  }) {
   const handleSaveRoute = async (e) => {
     e.preventDefault();
     setRouteSaveAttempted(true);
-    console.log(token);
     try {
       await saveRoute(token, {
         name: routeName,

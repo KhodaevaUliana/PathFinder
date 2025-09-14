@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import AuthControl from "./components/Auth/AuthControl";
 import SaveRouteControl from "./components/Route/SaveRouteControl";
+import SavedRoutesDropdown from "./components/Route/SavedRoutesDropdown";
 import MapView from "./components/Map/MapView";
 import { fetchRoute, saveRoute } from "./utils/api";
 
@@ -68,9 +69,13 @@ function App() {
         onRefresh={handleRefresh}
       />
 
-      <div className="logged-in">
+      <div className="logged-in-save">
         <SaveRouteControl token={token} route={route} distance={distance} />
       </div>
+
+      {token && <div className="logged-in-list">
+        <SavedRoutesDropdown token={token} />
+      </div>}
 
       <div className="login">
         <AuthControl
