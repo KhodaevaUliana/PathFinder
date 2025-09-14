@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="Refactored: added components, haven't rewritten App.js yet">
-      <change afterPath="$PROJECT_DIR$/src/components/Route/SaveRouteControl.js" afterDir="false" />
+    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="More refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Map/MapView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Map/MapView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Route/SaveRouteControl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Route/SaveRouteControl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Route/SaveRouteForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Route/SaveRouteForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,6 +49,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/components/Map" />
     </key>
   </component>
@@ -109,7 +109,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757854781813</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="More refactoring">
+      <option name="closed" value="true" />
+      <created>1757856836894</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1757856836894</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -119,6 +127,7 @@
     <MESSAGE value="Added authentification front-end" />
     <MESSAGE value="Adding saving routes feature" />
     <MESSAGE value="Refactored: added components, haven't rewritten App.js yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored: added components, haven't rewritten App.js yet" />
+    <MESSAGE value="More refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="More refactoring" />
   </component>
 </project>

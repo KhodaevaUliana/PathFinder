@@ -3,7 +3,7 @@ export async function fetchRoute(start, finish) {
     `http://localhost:8080/route?startLatitude=${start.lat}&startLongitude=${start.lng}&finishLatitude=${finish.lat}&finishLongitude=${finish.lng}`
   );
   if (!response.ok) {
-    throw new Error("Failed to fetch route");
+    throw new Error(response.text());
   }
   return response.json();
 }
@@ -19,7 +19,8 @@ export async function saveRoute(routeToSave, token) {
       body: JSON.stringify(routeToSave)
     });
     if (!response.ok) {
-      throw new Error("The route was not saved");
+      const errorMessage = await response.text();
+      throw new Error(errorMessage || "The route was not saved. Try another name");
     }
     return response.ok;
 }

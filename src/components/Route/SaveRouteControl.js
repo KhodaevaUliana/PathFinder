@@ -1,24 +1,35 @@
+import React from "react";
 import { useState } from "react";
 import SaveRouteForm from "./SaveRouteForm";
 import { saveRoute } from "../../utils/api";
 
-export default function SaveRouteControl({ token, route, distance }) {
+export default function SaveRouteControl({ token, route, distance  }) {
   const [routeName, setRouteName] = useState("");
-  const [routeSaveSuccess, setRouteSaveSuccess] = useState(true);
+  const [routeSaveAttempted, setRouteSaveAttempted] = useState(false);
+  const [newRouteToSave, setNewRouteToSave] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  React.useEffect(() => {
+    setErrorMessage("");
+    setRouteSaveAttempted(false);
+    if (route.length > 0) {
+      setNewRouteToSave(true);
+    } else {
+      setNewRouteToSave(false);
+    }
+  }, [route]);
 
   const handleSaveRoute = async (e) => {
     e.preventDefault();
-
+    setRouteSaveAttempted(true);
     try {
       await saveRoute(token, {
         name: routeName,
         routeJson: { nodes: route, distance },
         distance,
       });
-      setRouteSaveSuccess(true);
     } catch (err) {
-      console.error("Error saving route:", err);
-      setRouteSaveSuccess(false);
+      setErrorMessage(err.message);
     }
   };
 
@@ -28,8 +39,10 @@ export default function SaveRouteControl({ token, route, distance }) {
       route={route}
       routeName={routeName}
       setRouteName={setRouteName}
-      routeSaveSuccess={routeSaveSuccess}
+      newRouteToSave = {newRouteToSave}
       onSave={handleSaveRoute}
+      routeSaveAttempted = {routeSaveAttempted}
+      errorMessage = {errorMessage}
     />
   );
 }
