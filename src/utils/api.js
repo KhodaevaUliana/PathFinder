@@ -16,12 +16,10 @@ export async function saveRoute(routeToSave, token) {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(routeToSave),
-    }
+      body: JSON.stringify(routeToSave)
+    });
     if (!response.ok) {
       throw new Error("The route was not saved");
     }
     return response.ok;
-  );
-
 }

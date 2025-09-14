@@ -1,5 +1,19 @@
+import React from "react";
+import L from "leaflet";
 import { MapContainer, TileLayer, Polyline, Marker, Popup, Tooltip } from "react-leaflet";
 import ClickHandler from "./ClickHandler";
+
+
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+});
 
 function MapView({ points, route, onMapClick }) {
   const positions = route.map(node => [node.latitude, node.longitude]);

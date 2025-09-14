@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="Adding saving routes feature">
-      <change afterPath="$PROJECT_DIR$/src/components/Auth/AuthForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Map/ClickHandler.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Map/MapView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Route/RoutePlottingMessage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Route/SaveRouteForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/api.js" afterDir="false" />
+    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="Refactored: added components, haven't rewritten App.js yet">
+      <change afterPath="$PROJECT_DIR$/src/components/Route/SaveRouteControl.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AuthForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoggedIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/AuthControl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Map/MapView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Map/MapView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +48,11 @@
     &quot;last_opened_file_path&quot;: &quot;/Users/ulianakhodaeva/Desktop/pathfinder_frontend&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Map" />
+    </key>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="" />
@@ -101,7 +101,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757694530131</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Refactored: added components, haven't rewritten App.js yet">
+      <option name="closed" value="true" />
+      <created>1757854781813</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1757854781813</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -110,6 +118,7 @@
     <MESSAGE value="UX improved" />
     <MESSAGE value="Added authentification front-end" />
     <MESSAGE value="Adding saving routes feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding saving routes feature" />
+    <MESSAGE value="Refactored: added components, haven't rewritten App.js yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored: added components, haven't rewritten App.js yet" />
   </component>
 </project>
