@@ -10,6 +10,7 @@ export default function SaveRouteControl({ token, route, distance  }) {
   const [errorMessage, setErrorMessage] = useState("");
 
   React.useEffect(() => {
+    setRouteName("");
     setErrorMessage("");
     setRouteSaveAttempted(false);
     if (route.length > 0) {
@@ -22,6 +23,7 @@ export default function SaveRouteControl({ token, route, distance  }) {
   const handleSaveRoute = async (e) => {
     e.preventDefault();
     setRouteSaveAttempted(true);
+    console.log(token);
     try {
       await saveRoute(token, {
         name: routeName,

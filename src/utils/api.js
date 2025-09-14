@@ -8,7 +8,7 @@ export async function fetchRoute(start, finish) {
   return response.json();
 }
 
-export async function saveRoute(routeToSave, token) {
+export async function saveRoute(token, routeToSave) {
   const response = await fetch(
     "http://localhost:8080/saved_routes/save", {
       method: "POST",
