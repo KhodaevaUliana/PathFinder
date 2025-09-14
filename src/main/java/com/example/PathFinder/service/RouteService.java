@@ -22,7 +22,7 @@ public class RouteService {
         try {
             return routeRepository.save(route);
         } catch (DataIntegrityViolationException e) {
-            throw new RuntimeException("A route with this name already exists. Choose another name." + route.getUsername() + " " + route.getRouteName(), e);
+            throw new RuntimeException("A route with this name already exists. Choose another name.", e);
         }
     }
 
