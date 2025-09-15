@@ -41,7 +41,7 @@ export async function fetchRoutes(token) {
 }
 
 export async function fetchRouteByName(routeName, token) {
-  const response = await fetch("http://localhost:8080/saved_routes/fetch_route_by_name_and_username", {
+  const response = await fetch(`http://localhost:8080/saved_routes/fetch_route_by_name_and_username?routeName=${routeName}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

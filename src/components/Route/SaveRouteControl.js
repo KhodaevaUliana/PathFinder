@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import SaveRouteForm from "./SaveRouteForm";
 import { saveRoute } from "../../utils/api";
 
-export default function SaveRouteControl({ token, route, distance  }) {
+export default function SaveRouteControl({ token, route, distance, newRoutePlot  }) {
   const [routeName, setRouteName] = useState("");
   const [routeSaveAttempted, setRouteSaveAttempted] = useState(false);
   const [newRouteToSave, setNewRouteToSave] = useState(false);
@@ -12,7 +12,7 @@ export default function SaveRouteControl({ token, route, distance  }) {
     setRouteName("");
     setErrorMessage("");
     setRouteSaveAttempted(false);
-    if (route.length > 0) {
+    if (route.length > 0 && newRoutePlot) {
       setNewRouteToSave(true);
     } else {
       setNewRouteToSave(false);

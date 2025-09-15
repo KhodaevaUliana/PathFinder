@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchRoutes } from "../../utils/api";
 import SavedRoutesDropdown from "./SavedRoutesDropdown";
 
-function SavedRoutesManager({ token }) {
+function SavedRoutesManager({ token, onShowRoute }) {
   const [routeNamesArr, setRouteNamesArr] = useState([]);
   const [error, setError] = useState("");
   const [selectedRoute, setSelectedRoute] = useState("");
@@ -27,7 +27,6 @@ function SavedRoutesManager({ token }) {
 
   const handleSelect = (name) => setSelectedRoute(name);
 
-  const onShowRoute = () => {};
   const onDeleteRoute = () => {};
 
   return (
