@@ -4,7 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import AuthControl from "./components/Auth/AuthControl";
 import SaveRouteControl from "./components/Route/SaveRouteControl";
-import SavedRoutesDropdown from "./components/Route/SavedRoutesDropdown";
+import SavedRoutesManager from "./components/Route/SavedRoutesManager";
 import MapView from "./components/Map/MapView";
 import { fetchRoute, saveRoute } from "./utils/api";
 
@@ -60,6 +60,9 @@ function App() {
     }
   }, [points]);
 
+
+
+
   return (
     <div className="container">
       <Header
@@ -74,7 +77,7 @@ function App() {
       </div>
 
       {token && <div className="logged-in-list">
-        <SavedRoutesDropdown token={token} />
+        <SavedRoutesManager token = {token} />
       </div>}
 
       <div className="login">
