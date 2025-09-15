@@ -44,7 +44,7 @@ public class RouteController {
 
     //find a route by its name and username
     @GetMapping("/fetch_route_by_name_and_username")
-    public ResponseEntity<Route> fetchRouteByNameAndUsername(String routeName, Authentication authentication) {
+    public ResponseEntity<Route> fetchRouteByNameAndUsername(@RequestParam String routeName, Authentication authentication) {
         String username = authentication.getName();
         Route route = routeService.fetchRouteByUsernameAndName(username, routeName);
         if (route == null) {
@@ -56,7 +56,7 @@ public class RouteController {
 
     //delete route
     @DeleteMapping("/delete_route")
-    public ResponseEntity<?> deleteRoute(String routeName, Authentication authentication) {
+    public ResponseEntity<?> deleteRoute(@RequestParam String routeName, Authentication authentication) {
         String username = authentication.getName();
         boolean deleted = routeService.deleteRoute(username, routeName);
         if (deleted) {
