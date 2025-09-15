@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 import Header from "./components/Header";
@@ -7,15 +7,9 @@ import SaveRouteControl from "./components/Route/SaveRouteControl";
 import SavedRoutesManager from "./components/Route/SavedRoutesManager";
 import MapView from "./components/Map/MapView";
 import { fetchRoute, saveRoute } from "./utils/api";
+import { useRouteManager } from "./components/Route/RouteManager";
 
 function App() {
-  //all about routes
-  const [points, setPoints] = useState([]);
-  const [route, setRoute] = useState([]);
-  const [distance, setDistance] = useState(null);
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [routeName, setRouteName] = useState("");
-
   //log in
   const [token, setToken] = useState("");
   const [signUpSuccess, setSignUpSuccess] = useState(false);
@@ -25,42 +19,14 @@ function App() {
   const handleLogOut = () => setToken("");
   const handleSignup = () => setSignUpSuccess(true);
 
-
-  const handleMapClick = (latlng) => {
-    const newPoint = { lat: latlng.lat, lng: latlng.lng };
-    setPoints(points.length < 2 ? [...points, newPoint] : [newPoint]);
-  };
-
-  const handleRefresh = () => {
-    setPoints([]);
-    setRoute([]);
-    setRouteName("");
-    setDistance(null);
-    setErrorMessage(null);
-  };
-
-  //fetch route
-  useEffect(() => {
-    if (points.length === 2) {
-      const [start, finish] = points;
-      fetchRoute(start, finish)
-        .then((data) => {
-          setRoute(data.nodes);
-          setDistance(data.distance);
-          setErrorMessage(null);
-        })
-        .catch((err) => {
-          console.error(err);
-          setRoute([]);
-          setDistance(null);
-          setErrorMessage(
-            "The route between these points cannot be found. Please change start or/and finish point."
-          );
-        });
-    }
-  }, [points]);
-
-
+  const {
+    points,
+    route,
+    distance,
+    errorMessage,
+    handleMapClick,
+    handleRefresh
+  } = useRouteManager(token);
 
 
   return (

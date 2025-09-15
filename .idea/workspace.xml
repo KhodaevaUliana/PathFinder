@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="Added a dropdown list of saved routes for a given user">
-      <change afterPath="$PROJECT_DIR$/src/components/Route/RouteManager.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Route/SavedRoutesManager.js" afterDir="false" />
+    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="A bit of refactoring (separated UI and business logic)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Route/SavedRoutesDropdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Route/SavedRoutesDropdown.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Route/RouteManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Route/RouteManager.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757867401519</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="A bit of refactoring (separated UI and business logic)">
+      <option name="closed" value="true" />
+      <created>1757944953871</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1757944953871</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -157,6 +162,7 @@
     <MESSAGE value="Error handling and corresponding UX slightly improved" />
     <MESSAGE value="Route saving fixed" />
     <MESSAGE value="Added a dropdown list of saved routes for a given user" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a dropdown list of saved routes for a given user" />
+    <MESSAGE value="A bit of refactoring (separated UI and business logic)" />
+    <option name="LAST_COMMIT_MESSAGE" value="A bit of refactoring (separated UI and business logic)" />
   </component>
 </project>
