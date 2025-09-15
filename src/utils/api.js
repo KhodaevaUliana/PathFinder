@@ -35,7 +35,7 @@ export async function fetchRoutes(token) {
   });
   if (!response.ok) {
     const errorMessage = await response.text();
-    throw new Error(errorMessage);
+    throw new Error(errorMessage || "Failed to load routes");
   }
   return response.json();
 }
@@ -50,7 +50,21 @@ export async function fetchRouteByName(routeName, token) {
   });
   if (!response.ok) {
     const errorMessage = await response.text();
-    throw new Error(errorMessage);
+    throw new Error(errorMessage || "Failed to fetch route");
   }
   return response.json();
+}
+
+export async function deleteRoute(routeName, token) {
+  const response = await fetch(`http://localhost:8080/saved_routes/delete_route?routeName=${routeName}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  });
+  if (!response.ok) {
+    const errorMessage = await response.text();
+    throw new Error(errorMessage || "Failed to delete this route");
+  }
+  return response.ok;
 }

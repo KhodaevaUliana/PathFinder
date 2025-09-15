@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchRoutes } from "../../utils/api";
+import { fetchRoutes, deleteRoute } from "../../utils/api";
 import SavedRoutesDropdown from "./SavedRoutesDropdown";
 
 function SavedRoutesManager({ token, onShowRoute }) {
@@ -27,11 +27,18 @@ function SavedRoutesManager({ token, onShowRoute }) {
 
   const handleSelect = (name) => setSelectedRoute(name);
 
-  const onDeleteRoute = () => {};
+  const onDeleteRoute =  async (name) => {
+    try {
+      await deleteRoute(name, token);
+      setRouteNamesArr(routeNamesArr.filter(routeName => routeName !== name));
+    } catch (err) {
+      setError(err.message);
+    }
+  };
 
   return (
     <div>
-      {error && <h2 className="error">{error}</h2>}
+      {error && <h2 className="error">{error.length > 200 ? "Error: " + error.slice(0, 50) + "..." : error}</h2>}
       <SavedRoutesDropdown
         routes={routeNamesArr}
         selectedRoute={selectedRoute}
