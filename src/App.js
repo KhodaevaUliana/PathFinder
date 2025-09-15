@@ -3,7 +3,7 @@ import "./App.css";
 
 import Header from "./components/Header";
 import AuthControl from "./components/Auth/AuthControl";
-import SaveRouteControl from "./components/Route/SaveRouteControl";
+//import SaveRouteControl from "./components/Route/SaveRouteControl";
 import SavedRoutesManager from "./components/Route/SavedRoutesManager";
 import MapView from "./components/Map/MapView";
 import { useRouteManager } from "./components/Route/RouteManager";
@@ -39,13 +39,11 @@ function App() {
         onRefresh={handleRefresh}
       />
 
-     <div className="logged-in-save">
-        <SaveRouteControl token={token} route={route} distance={distance}  newRoutePlot={newRoutePlot}/>
-     </div>
 
-      {token && <div className="logged-in-list">
-        <SavedRoutesManager token={token} onShowRoute={onShowRoute}/>
-      </div>}
+
+      <div className="logged-in-list">
+        <SavedRoutesManager token={token} route={route} distance={distance} onShowRoute={onShowRoute}/>
+      </div>
 
       <div className="login">
         <AuthControl
@@ -65,3 +63,8 @@ function App() {
 }
 
 export default App;
+
+
+/*<div className="logged-in-save">
+        <SaveRouteControl token={token} route={route} distance={distance}  newRoutePlot={newRoutePlot}/>
+     </div>*/
