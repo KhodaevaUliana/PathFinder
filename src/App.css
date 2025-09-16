@@ -104,17 +104,6 @@ form input {
   color: red;
 }
 
-.auth-buttons {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-start;
-}
-.auth-button {
-  margin: 10px;
-  font-weight: bold;
-  font-size: 20px;
-  color: black;
-}
 
 label {
   display: block;

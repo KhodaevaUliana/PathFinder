@@ -1,0 +1,10 @@
+.title {
+  font-family: 'Comic Sans';
+}
+
+.refresh-button {
+  margin: 20px;
+  color: magenta;
+  font-weight: bold;
+  font-size: 20px;
+}

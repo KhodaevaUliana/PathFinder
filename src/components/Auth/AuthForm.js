@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Auth.css";
 
 export default function AuthForm({ onLogin, onSignup }) {
   const [username, setUsername] = useState("");
@@ -37,12 +38,12 @@ export default function AuthForm({ onLogin, onSignup }) {
   return (
     <div>
       <div>
-        <label>Username</label>
+        <label className="form-row">Username</label>
         <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
       </div>
 
       <div>
-        <label>Password</label>
+        <label className="form-row">Password</label>
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
         {error && <p className="error">Error: {error}</p>}
       </div>

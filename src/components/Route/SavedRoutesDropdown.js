@@ -1,7 +1,9 @@
+import "./SavedRoutesDropdown.css";
+
 function SavedRoutesDropdown({ routes, selectedRoute, onSelect, onShow, onDelete, deleteCandidate, handlePerformDelete, handleCancelDelete }) {
   return (
     <div>
-      <h2>Your saved routes</h2>
+      <h2 className="savedTitle">Your saved routes</h2>
       <select value={selectedRoute} onChange={(e) => onSelect(e.target.value)}>
         <option value="">Select a route</option>
         {routes.map((name) => (
@@ -13,13 +15,14 @@ function SavedRoutesDropdown({ routes, selectedRoute, onSelect, onShow, onDelete
 
       {selectedRoute && (
         <div>
-          <button onClick={() => onShow(selectedRoute)}>Show</button>
-          <button onClick={() => onDelete(selectedRoute)}>Delete</button>
+          <button className="show-button" onClick={() => onShow(selectedRoute)}>Show</button>
+          <button className="delete-button" onClick={() => onDelete(selectedRoute)}>Delete</button>
           {deleteCandidate &&
             <div>
-              <h2> Are you sure to delete {selectedRoute}?</h2>
-              <button onClick={() => {handlePerformDelete(selectedRoute)}}> Yes </button>
-              <button onClick={handleCancelDelete}> No </button>
+              <h2 className="confirm-message"> Are you sure to delete
+              <span className="highlight"> {selectedRoute} </span>?</h2>
+              <button className="delete-button" onClick={() => {handlePerformDelete(selectedRoute)}}> Yes </button>
+              <button className="show-button"  onClick={handleCancelDelete}> No </button>
             </div>}
         </div>
       )}
