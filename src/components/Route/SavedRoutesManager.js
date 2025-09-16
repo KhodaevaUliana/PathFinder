@@ -9,7 +9,7 @@ function SavedRoutesManager({ token, route, distance, onShowRoute, newRoutePlot,
   const [errorDropdown, setErrorDropdown] = useState(""); //for dropdown: fetching saved routes etc.
   const [selectedRoute, setSelectedRoute] = useState(""); //selectedRoute for dropdown
   const [routeName, setRouteName] = useState(""); //name entered in saveForm
-  //const [newRouteToSave, setNewRouteToSave] = useState(false); //flag: is it time to show saveForm?
+  const [deleteCandidate, setDeleteCandidate] = useState(null); //name of a route we are trying to delete
   const [errorSave, setErrorSave] = useState(""); //for saveForm
 
   // fetch the list of saved routes
@@ -50,15 +50,31 @@ function SavedRoutesManager({ token, route, distance, onShowRoute, newRoutePlot,
 
   const handleSelect = (name) => setSelectedRoute(name); //for dropdown list
 
+  const onDeleteRoute = (name) => {
+      setDeleteCandidate(name);
+  };
+
+  const handlePerformDelete = async () => {
+    try {
+      await deleteRoute(deleteCandidate, token);
+      setRouteNamesArr(routeNamesArr.filter(routeName => routeName !== deleteCandidate)); //update dropdown
+      setDeleteCandidate(null);
+    } catch (err) {
+      setErrorDropdown(err.message);
+    }
+  };
+
+  const handleCancelDelete = () => {setDeleteCandidate(null)};
+
   //delete route handle
-  const onDeleteRoute =  async (name) => {
+  /*const onDeleteRoute =  async (name) => {
     try {
       await deleteRoute(name, token);
       setRouteNamesArr(routeNamesArr.filter(routeName => routeName !== name)); //update dropdown
     } catch (err) {
       setErrorDropdown(err.message);
     }
-  };
+  };*/
 
   return (
     <div>
@@ -79,6 +95,9 @@ function SavedRoutesManager({ token, route, distance, onShowRoute, newRoutePlot,
         onSelect={handleSelect}
         onShow={onShowRoute}
         onDelete={onDeleteRoute}
+        deleteCandidate={deleteCandidate}
+        handlePerformDelete={handlePerformDelete}
+        handleCancelDelete={handleCancelDelete}
       />}
     </div>
   );
