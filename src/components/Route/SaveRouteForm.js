@@ -1,9 +1,9 @@
-function SaveRouteForm({ token, route, routeName, setRouteName, newRouteToSave, onSave, routeSaveAttempted, errorMessage }) {
+function SaveRouteForm({ token, route, routeName, setRouteName, newRoutePlot, onSave, saveRouteSuccess, errorMessage }) {
   //don't show anything for those who are not logged in
   if (!token) return <h2>Log in for some extra functionality!</h2>;
   //don't show the saving form if there is no route to be saved
-  if (!newRouteToSave) return <div></div>;
-  if (routeSaveAttempted && !errorMessage) {
+  if (!newRoutePlot) return <div></div>;
+  if (saveRouteSuccess) {
     return <h2> This route was successfully saved! </h2>;
   }
 
@@ -14,7 +14,7 @@ function SaveRouteForm({ token, route, routeName, setRouteName, newRouteToSave, 
           <input type="text" value={routeName} onChange={e => setRouteName(e.target.value)} />
           <button type="submit">Save route</button>
         </form>
-      {errorMessage && <h2 className="error"> {errorMessage} </h2>}
+       {errorMessage && <h2 className="error">{errorMessage.length > 200 ? "Error: " + errorMessage.slice(0, 50) + "..." : errorMessage}</h2>}
     </div>
   );
 }

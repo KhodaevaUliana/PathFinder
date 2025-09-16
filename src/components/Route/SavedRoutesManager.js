@@ -4,73 +4,73 @@ import SavedRoutesDropdown from "./SavedRoutesDropdown";
 import SaveRouteForm from "./SaveRouteForm";
 
 
-function SavedRoutesManager({ token, route, distance, onShowRoute }) {
-  const [routeNamesArr, setRouteNamesArr] = useState([]);
-  const [error, setError] = useState(""); //for drop down
-  const [selectedRoute, setSelectedRoute] = useState("");
-  const [routeName, setRouteName] = useState("");
-  const [routeSaveAttempted, setRouteSaveAttempted] = useState(false);
-  const [newRouteToSave, setNewRouteToSave] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(""); //for saving
+function SavedRoutesManager({ token, route, distance, onShowRoute, newRoutePlot, saveRouteSuccess, setSaveRouteSuccess }) {
+  const [routeNamesArr, setRouteNamesArr] = useState([]); //the list of saved routes
+  const [errorDropdown, setErrorDropdown] = useState(""); //for dropdown: fetching saved routes etc.
+  const [selectedRoute, setSelectedRoute] = useState(""); //selectedRoute for dropdown
+  const [routeName, setRouteName] = useState(""); //name entered in saveForm
+  //const [newRouteToSave, setNewRouteToSave] = useState(false); //flag: is it time to show saveForm?
+  const [errorSave, setErrorSave] = useState(""); //for saveForm
 
   // fetch the list of saved routes
   const loadRoutes = async () => {
     if (!token) return;
-    setError("");
+    setErrorDropdown("");
     try {
       const routes = await fetchRoutes(token);
       setRouteNamesArr(routes);
     } catch (err) {
-      setError(err.message);
+      setErrorDropdown(err.message);
     }
   };
 
-  //fetch saved routes when token changes
+  //fetch saved routes when token changes (aka a new user logs in)
   useEffect(() => {
     loadRoutes();
   }, [token]);
 
+  //use of SaveForm
   const handleSaveRoute = async (e, route, distance) => {
     e.preventDefault();
-    setRouteSaveAttempted(true);
-    setErrorMessage("");
+    setSaveRouteSuccess(false);
+    setErrorSave("");
     try {
       await saveRoute(token, {
         name: routeName,
         routeJson: { nodes: route, distance },
         distance,
       });
+      routeNamesArr.push(routeName); //add a new route to the arr
       setRouteName(""); // clear the saving form
-      setRouteSaveAttempted(false);
-      await loadRoutes();  //update saved routes
+      setSaveRouteSuccess(true);
     } catch (err) {
-      setErrorMessage(err.message);
+      setErrorSave(err.message);
     }
   };
 
-  const handleSelect = (name) => setSelectedRoute(name);
+  const handleSelect = (name) => setSelectedRoute(name); //for dropdown list
 
+  //delete route handle
   const onDeleteRoute =  async (name) => {
     try {
       await deleteRoute(name, token);
-      setRouteNamesArr(routeNamesArr.filter(routeName => routeName !== name));
+      setRouteNamesArr(routeNamesArr.filter(routeName => routeName !== name)); //update dropdown
     } catch (err) {
-      setError(err.message);
+      setErrorDropdown(err.message);
     }
   };
 
   return (
     <div>
-      {error && <h2 className="error">{error.length > 200 ? "Error: " + error.slice(0, 50) + "..." : error}</h2>}
       <SaveRouteForm
         token={token}
         route={route}
         routeName={routeName}
         setRouteName={setRouteName}
-        newRouteToSave={newRouteToSave}
+        newRoutePlot={newRoutePlot}
         onSave={(e) => handleSaveRoute(e, route, distance)}
-        routeSaveAttempted={routeSaveAttempted}
-        errorMessage={errorMessage}
+        saveRouteSuccess={saveRouteSuccess}
+        errorMessage={errorSave}
       />
 
       {token && <SavedRoutesDropdown

@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="Route deletion: first draft">
+    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="SaveRouteControl merged into SavedRoutesManager. Need to figure out why save form is not showing up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Route/RouteManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Route/RouteManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Route/SaveRouteForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Route/SaveRouteForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Route/SavedRoutesManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Route/SavedRoutesManager.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757955017420</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="SaveRouteControl merged into SavedRoutesManager. Need to figure out why save form is not showing up">
+      <option name="closed" value="true" />
+      <created>1757957385004</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1757957385004</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -190,6 +200,7 @@
     <MESSAGE value="Moar refactoring" />
     <MESSAGE value="Show saved route added" />
     <MESSAGE value="Route deletion: first draft" />
-    <option name="LAST_COMMIT_MESSAGE" value="Route deletion: first draft" />
+    <MESSAGE value="SaveRouteControl merged into SavedRoutesManager. Need to figure out why save form is not showing up" />
+    <option name="LAST_COMMIT_MESSAGE" value="SaveRouteControl merged into SavedRoutesManager. Need to figure out why save form is not showing up" />
   </component>
 </project>

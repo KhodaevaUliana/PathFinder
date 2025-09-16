@@ -19,14 +19,16 @@ function App() {
   const handleSignup = () => setSignUpSuccess(true);
 
   const {
-    points,
-    route,
-    distance,
-    errorMessage,
-    newRoutePlot,
-    handleMapClick,
-    handleRefresh,
-    onShowRoute
+    points, //start and finish
+    route, //sequence of points making up the path
+    distance, //length of the path
+    errorMessage, //in case of issues with plotting
+    newRoutePlot, //are we plotting a new route? we might need to save it
+    handleMapClick, //click on start and finish
+    handleRefresh, //refresh button
+    onShowRoute, //for saved routes -- plot them on the map
+    saveRouteSuccess, //we just saved a route and want you let it know
+    setSaveRouteSuccess
   } = useRouteManager(token);
 
 
@@ -42,7 +44,15 @@ function App() {
 
 
       <div className="logged-in-list">
-        <SavedRoutesManager token={token} route={route} distance={distance} onShowRoute={onShowRoute}/>
+        <SavedRoutesManager
+          token={token}
+          route={route}
+          distance={distance}
+          onShowRoute={onShowRoute}
+          newRoutePlot={newRoutePlot}
+          saveRouteSuccess={saveRouteSuccess}
+          setSaveRouteSuccess={setSaveRouteSuccess}
+        />
       </div>
 
       <div className="login">
@@ -56,7 +66,11 @@ function App() {
       </div>
 
       <div className="map">
-        <MapView points={points} route={route} onMapClick={handleMapClick} />
+        <MapView
+          points={points}
+          route={route}
+          onMapClick={handleMapClick}
+        />
       </div>
     </div>
   );
@@ -64,7 +78,3 @@ function App() {
 
 export default App;
 
-
-/*<div className="logged-in-save">
-        <SaveRouteControl token={token} route={route} distance={distance}  newRoutePlot={newRoutePlot}/>
-     </div>*/

@@ -8,11 +8,15 @@ export function useRouteManager(token) {
   const [errorMessage, setErrorMessage] = useState(null);
   const [routeName, setRouteName] = useState("");
   const [newRoutePlot, setNewRoutePlot] = useState(false);
+  const [saveRouteSuccess, setSaveRouteSuccess] = useState(false);
 
   const handleMapClick = (latlng) => {
     const newPoint = { lat: latlng.lat, lng: latlng.lng };
+    if (points.length == 1) {
+      setNewRoutePlot(true);
+    }
     setPoints(points.length < 2 ? [...points, newPoint] : [newPoint]);
-    setNewRoutePlot(true);
+    //setNewRoutePlot(true);
   };
 
   const handleRefresh = () => {
@@ -22,6 +26,7 @@ export function useRouteManager(token) {
     setDistance(null);
     setErrorMessage(null);
     setNewRoutePlot(false);
+    setSaveRouteSuccess(false);
   };
 
   //find a route between two points
@@ -29,6 +34,7 @@ export function useRouteManager(token) {
     if (!newRoutePlot) {
       return;
     }
+    setSaveRouteSuccess(false);
     if (points.length === 2) {
       const [start, finish] = points;
       fetchRoute(start, finish)
@@ -82,7 +88,9 @@ export function useRouteManager(token) {
     newRoutePlot,
     handleMapClick,
     handleRefresh,
-    onShowRoute
+    onShowRoute,
+    saveRouteSuccess,
+    setSaveRouteSuccess
   };
 
 }
