@@ -40,7 +40,8 @@
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-rows: 40% 60%;
+  height: 100vh;
   gap: 10px;
 }
 
@@ -51,17 +52,9 @@
   padding: 20px;
 }
 
-.logged-in-save {
-  grid-column: 2;
-  grid-row: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 20px;
-}
 
-.logged-in-list {
-  grid-column: 3;
+.saved-routes-manager {
+  grid-column: 2 /span 2;
   grid-row: 1;
   display: flex;
   justify-content: flex-end;
@@ -99,7 +92,7 @@ form input {
 }
 
 .error {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
   color: red;
 }
@@ -112,6 +105,6 @@ label {
   font-size: 14px;
 }
 
-.dropdown {
+/*.dropdown {
   font-size: 14px;
-}
+}*/

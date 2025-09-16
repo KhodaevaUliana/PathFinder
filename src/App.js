@@ -43,7 +43,7 @@ function App() {
 
 
 
-      <div className="logged-in-list">
+      <div className="saved-routes-manager">
         <SavedRoutesManager
           token={token}
           route={route}

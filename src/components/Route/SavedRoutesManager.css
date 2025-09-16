@@ -1,0 +1,19 @@
+.saved-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.save-form {
+  grid-column: 1;
+  align-self: start;
+  justify-self: center;
+  padding: 20px;
+}
+
+.dropdown {
+  grid-column: 2;
+  align-self: start;
+  justify-self: center;
+  padding: 20px;
+}

@@ -1,5 +1,5 @@
 function RoutePlottingMessage({ points, distance, errorMessage }) {
-  if (errorMessage) return <h2>{errorMessage}</h2>;
+  if (errorMessage) return <h2 className="error">{errorMessage}</h2>;
   if (points.length === 2 && distance !== null) {
     return <h2>The distance is {Math.round(distance / 10) / 100} km. Press
     <span style={{color: "magenta"}}> Refresh </span>

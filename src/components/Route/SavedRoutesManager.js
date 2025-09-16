@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchRoutes, deleteRoute, saveRoute } from "../../utils/api";
 import SavedRoutesDropdown from "./SavedRoutesDropdown";
 import SaveRouteForm from "./SaveRouteForm";
+import "./SavedRoutesManager.css";
 
 
 function SavedRoutesManager({ token, route, distance, onShowRoute, newRoutePlot, saveRouteSuccess, setSaveRouteSuccess }) {
@@ -77,7 +78,8 @@ function SavedRoutesManager({ token, route, distance, onShowRoute, newRoutePlot,
   };*/
 
   return (
-    <div>
+    <div className="saved-container">
+      <div className="save-form">
       <SaveRouteForm
         token={token}
         route={route}
@@ -88,7 +90,9 @@ function SavedRoutesManager({ token, route, distance, onShowRoute, newRoutePlot,
         saveRouteSuccess={saveRouteSuccess}
         errorMessage={errorSave}
       />
+      </div>
 
+      <div className="dropdown">
       {token && <SavedRoutesDropdown
         routes={routeNamesArr}
         selectedRoute={selectedRoute}
@@ -99,6 +103,7 @@ function SavedRoutesManager({ token, route, distance, onShowRoute, newRoutePlot,
         handlePerformDelete={handlePerformDelete}
         handleCancelDelete={handleCancelDelete}
       />}
+      </div>
     </div>
   );
 }
