@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="Some cool fonts and colors added">
-      <change afterPath="$PROJECT_DIR$/src/components/Route/SavedRoutesManager.css" afterDir="false" />
+    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="layout adjustments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Route/RouteManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Route/RouteManager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Route/RoutePlottingMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Route/RoutePlottingMessage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Route/SaveRouteForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Route/SaveRouteForm.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Route/SaveRouteForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Route/SaveRouteForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Route/SavedRoutesDropdown.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Route/SavedRoutesDropdown.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Route/SavedRoutesManager.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Route/SavedRoutesManager.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Route/SavedRoutesManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Route/SavedRoutesManager.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -208,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758039233276</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="layout adjustments">
+      <option name="closed" value="true" />
+      <created>1758042042194</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1758042042194</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -230,6 +240,7 @@
     <MESSAGE value="The issue with SaveForm is fixed" />
     <MESSAGE value="Confirmation to delete route added" />
     <MESSAGE value="Some cool fonts and colors added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some cool fonts and colors added" />
+    <MESSAGE value="layout adjustments" />
+    <option name="LAST_COMMIT_MESSAGE" value="layout adjustments" />
   </component>
 </project>

@@ -48,8 +48,9 @@ export function useRouteManager(token) {
           console.error(err);
           setRoute([]);
           setDistance(null);
+          setNewRoutePlot(false);
           setErrorMessage(
-            "The route between these points cannot be found. Please change start or/and finish point."
+            "The route between these points cannot be found."
           );
         });
     }

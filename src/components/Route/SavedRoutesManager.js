@@ -67,15 +67,9 @@ function SavedRoutesManager({ token, route, distance, onShowRoute, newRoutePlot,
 
   const handleCancelDelete = () => {setDeleteCandidate(null)};
 
-  //delete route handle
-  /*const onDeleteRoute =  async (name) => {
-    try {
-      await deleteRoute(name, token);
-      setRouteNamesArr(routeNamesArr.filter(routeName => routeName !== name)); //update dropdown
-    } catch (err) {
-      setErrorDropdown(err.message);
-    }
-  };*/
+  if (!token) {
+    return (<div className="login-advertisement"> <h2> Log in for some extra functionality! </h2> </div>);
+  }
 
   return (
     <div className="saved-container">
@@ -93,7 +87,7 @@ function SavedRoutesManager({ token, route, distance, onShowRoute, newRoutePlot,
       </div>
 
       <div className="dropdown">
-      {token && <SavedRoutesDropdown
+      <SavedRoutesDropdown
         routes={routeNamesArr}
         selectedRoute={selectedRoute}
         onSelect={handleSelect}
@@ -102,10 +96,9 @@ function SavedRoutesManager({ token, route, distance, onShowRoute, newRoutePlot,
         deleteCandidate={deleteCandidate}
         handlePerformDelete={handlePerformDelete}
         handleCancelDelete={handleCancelDelete}
-      />}
+      />
       </div>
-    </div>
-  );
+    </div>);
 }
 
 export default SavedRoutesManager;

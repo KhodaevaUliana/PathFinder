@@ -1,11 +1,8 @@
 import "./SaveRouteForm.css"
-import "./SavedRoutesManager.css"
 
 function SaveRouteForm({ token, route, routeName, setRouteName, newRoutePlot, onSave, saveRouteSuccess, errorMessage }) {
-  //don't show anything for those who are not logged in
-  if (!token) return <h2>Log in for some extra functionality!</h2>;
   //don't show the saving form if there is no route to be saved
-  if (!newRoutePlot) return <div className="save-form"></div>;
+  if (!newRoutePlot) return <div style={{ minHeight: "120px" }}></div>;
   if (saveRouteSuccess) {
     return <h2 className="saved-route-message"> The current route was successfully saved! </h2>;
   }
