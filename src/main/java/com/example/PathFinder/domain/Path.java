@@ -1,7 +1,5 @@
 package com.example.PathFinder.domain;
 
-import com.example.PathFinder.Node;
-
 import java.util.*;
 
 public final class Path {
@@ -17,17 +15,11 @@ public final class Path {
         return nodes;
     }
 
-    public void setNodes(List<Node> nodes) {
-        this.nodes = nodes;
-    }
 
     public double getDistance() {
         return distance;
     }
 
-    public void setDistance(double distance) {
-        this.distance = distance;
-    }
 
     @Override
     public String toString() {

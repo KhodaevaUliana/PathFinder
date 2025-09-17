@@ -1,5 +1,6 @@
 package com.example.PathFinder;
 
+import com.example.PathFinder.domain.Node;
 import com.example.PathFinder.domain.Path;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import java.net.URISyntaxException;
 import java.util.*;
 import org.locationtech.jts.index.strtree.*;
 import org.locationtech.jts.geom.Envelope;
+import util.DistanceCalculator;
 
 @Service
 public class GraphProvider {
@@ -77,7 +79,7 @@ public class GraphProvider {
         Node queryNode = new Node("0", queryParamLatitude, queryParamLongitude);
 
         for (Node node : candidates) {
-            double distance = Node.calculateDistanceBetweenTwoNodesInMeters(node, queryNode);
+            double distance = DistanceCalculator.calculateDistanceBetweenTwoNodesInMeters(node, queryNode);
             if (distance < nearestDistance) {
                 nearestNode = node;
                 nearestDistance = distance;

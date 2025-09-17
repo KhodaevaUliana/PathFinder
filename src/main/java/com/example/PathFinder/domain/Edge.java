@@ -1,18 +1,16 @@
-package com.example.PathFinder;
+package com.example.PathFinder.domain;
+
+import util.DistanceCalculator;
 
 public class Edge {
     private Node from;
     private Node to;
     private double distance;
 
-    private double findDistance() {
-        return Node.calculateDistanceBetweenTwoNodesInMeters(this.from, this.to);
-    }
-
     public Edge (Node from, Node to) {
         this.from = from;
         this.to = to;
-        this.distance = this.findDistance();
+        this.distance = DistanceCalculator.calculateDistanceBetweenTwoNodesInMeters(this.from, this.to);
     }
 
     public Edge (Node from, Node to, double distance) {

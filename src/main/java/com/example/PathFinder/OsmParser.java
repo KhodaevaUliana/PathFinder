@@ -1,9 +1,11 @@
 package com.example.PathFinder;
 
+import com.example.PathFinder.domain.Edge;
+import com.example.PathFinder.domain.Node;
 import de.topobyte.osm4j.core.access.OsmIterator;
 import de.topobyte.osm4j.core.model.iface.*;
 import de.topobyte.osm4j.pbf.seq.PbfIterator;
-import org.yaml.snakeyaml.events.NodeEvent;
+import util.DistanceCalculator;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -121,7 +123,7 @@ public class OsmParser {
             Node currNode = this.nodes.get(nodesIDs.get(numOfNode));
             Node prevNode = this.nodes.get(nodesIDs.get(numOfNode - 1));
             //calculate distance
-            double distance = Node.calculateDistanceBetweenTwoNodesInMeters(currNode, prevNode);
+            double distance = DistanceCalculator.calculateDistanceBetweenTwoNodesInMeters(currNode, prevNode);
             //edge in one direction
             addNewEdge(currNode, new Edge(currNode, prevNode, distance));
             //and in the opposite direction
