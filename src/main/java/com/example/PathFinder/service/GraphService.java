@@ -1,29 +1,25 @@
-package com.example.PathFinder;
+package com.example.PathFinder.service;
 
+import com.example.PathFinder.Graph;
 import com.example.PathFinder.domain.Node;
-import com.example.PathFinder.domain.Path;
 import com.example.PathFinder.repository.GraphRepository;
-import com.example.PathFinder.repository.OsmGraphRepository;
-import com.example.PathFinder.util.OsmParser;
-import jakarta.annotation.PostConstruct;
+import com.example.PathFinder.util.DistanceCalculator;
+import org.locationtech.jts.geom.Envelope;
+import org.locationtech.jts.index.strtree.STRtree;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.net.URISyntaxException;
-
-import java.util.*;
-import org.locationtech.jts.index.strtree.*;
-import org.locationtech.jts.geom.Envelope;
-import com.example.PathFinder.util.DistanceCalculator;
+import java.util.Collection;
+import java.util.List;
 
 @Service
-public class GraphProvider {
-    private GraphRepository graphRepository;
-    private Graph graph;
+public class GraphService {
+    private final GraphRepository graphRepository;
+    private final Graph graph;
     private STRtree spatialIndex; //R-tree enabling a quick search of the nearest index
 
     @Autowired
-    public GraphProvider(GraphRepository graphRepository) {
+    public GraphService(GraphRepository graphRepository) {
         this.graphRepository = graphRepository;
         this.graph = this.graphRepository.getGraph();
         buildSpatialIndex(this.graph.getAdjacencyList().keySet());
@@ -81,21 +77,5 @@ public class GraphProvider {
 
     }
 
-    public Path shortestPathBetweenTwoPoints(double latitudeStart, double longitudeStart,
-                                             double latitudeFinish, double longitudeFinish) throws IllegalArgumentException {
-        //find the nearest node to the start
-        Node startNode = findNearestNode(latitudeStart, longitudeStart);
-        if (startNode == null) {
-            throw new IllegalArgumentException("Start of the route is outside the map");
-        }
-        //find the nearest node to the finish
-        Node finishNode = findNearestNode(latitudeFinish, longitudeFinish);
-        if (finishNode == null) {
-            throw new IllegalArgumentException("Finish of the route is outside the map");
-        }
 
-        //replace Dijkstra with A*!!!
-        return Graph.shortestPath(graph, startNode, finishNode);
-
-    }
 }

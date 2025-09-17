@@ -2,6 +2,7 @@ package com.example.PathFinder.controller;
 
 import com.example.PathFinder.domain.Route;
 import com.example.PathFinder.service.SavedRoutesService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 public class SavedRoutesController {
     private final SavedRoutesService routeService;
 
+    @Autowired
     public SavedRoutesController(SavedRoutesService routeService) {
         this.routeService = routeService;
     }
