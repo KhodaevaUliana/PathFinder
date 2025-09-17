@@ -1,17 +1,14 @@
 package com.example.PathFinder.controller;
 
-import com.example.PathFinder.JWTUtility;
-import com.example.PathFinder.LogInCredentials;
+import com.example.PathFinder.util.JWTUtility;
+import com.example.PathFinder.domain.LogInCredentials;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.web.bind.annotation.*;
-import io.jsonwebtoken.*;
 
 
 @RestController

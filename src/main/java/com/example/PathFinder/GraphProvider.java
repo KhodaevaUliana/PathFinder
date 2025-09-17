@@ -2,7 +2,11 @@ package com.example.PathFinder;
 
 import com.example.PathFinder.domain.Node;
 import com.example.PathFinder.domain.Path;
+import com.example.PathFinder.repository.GraphRepository;
+import com.example.PathFinder.repository.OsmGraphRepository;
+import com.example.PathFinder.util.OsmParser;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.net.URISyntaxException;
@@ -10,14 +14,22 @@ import java.net.URISyntaxException;
 import java.util.*;
 import org.locationtech.jts.index.strtree.*;
 import org.locationtech.jts.geom.Envelope;
-import util.DistanceCalculator;
+import com.example.PathFinder.util.DistanceCalculator;
 
 @Service
 public class GraphProvider {
+    private GraphRepository graphRepository;
     private Graph graph;
     private STRtree spatialIndex; //R-tree enabling a quick search of the nearest index
 
-    @PostConstruct
+    @Autowired
+    public GraphProvider(GraphRepository graphRepository) {
+        this.graphRepository = graphRepository;
+        this.graph = this.graphRepository.getGraph();
+        buildSpatialIndex(this.graph.getAdjacencyList().keySet());
+    }
+
+    /*@PostConstruct
     public void init() {
         try {
             java.nio.file.Path path = java.nio.file.Paths.get(Objects.requireNonNull(getClass()
@@ -35,7 +47,7 @@ public class GraphProvider {
             System.out.println(exception.getMessage());
         }
 
-    }
+    }*/
 
     public Graph getGraph() {
         return graph;

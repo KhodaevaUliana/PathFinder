@@ -1,4 +1,4 @@
-package util;
+package com.example.PathFinder.util;
 
 import com.example.PathFinder.domain.Node;
 

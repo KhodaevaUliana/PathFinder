@@ -1,4 +1,4 @@
-package com.example.PathFinder;
+package com.example.PathFinder.domain;
 
 public class LogInCredentials {
     private String username;
