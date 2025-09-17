@@ -1,5 +1,6 @@
 package com.example.PathFinder.controller;
 
+import com.example.PathFinder.service.AuthenticationService;
 import com.example.PathFinder.util.JWTUtility;
 import com.example.PathFinder.model.LogInCredentials;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +14,14 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
-public class AuthentificationController {
+public class AuthenticationController {
+
+    private final AuthenticationService authenticationService;
 
     @Autowired
-    private UserDetailsManager userDetailsManager;
-
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-
+    public AuthenticationController (AuthenticationService authenticationService) {
+        this.authenticationService = authenticationService;
+    }
 
 
     //sign-up -- create a user
