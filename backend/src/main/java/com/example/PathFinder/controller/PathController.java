@@ -1,7 +1,6 @@
 package com.example.PathFinder.controller;
 
 
-import com.example.PathFinder.GraphProvider;
 import com.example.PathFinder.domain.Path;
 import com.example.PathFinder.service.PathService;
 import org.springframework.beans.factory.annotation.Autowired;
