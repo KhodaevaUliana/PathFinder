@@ -1,11 +1,10 @@
-package com.example.PathFinder;
+package com.example.PathFinder.util;
 
 import com.example.PathFinder.domain.Edge;
 import com.example.PathFinder.domain.Node;
 import de.topobyte.osm4j.core.access.OsmIterator;
 import de.topobyte.osm4j.core.model.iface.*;
 import de.topobyte.osm4j.pbf.seq.PbfIterator;
-import util.DistanceCalculator;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

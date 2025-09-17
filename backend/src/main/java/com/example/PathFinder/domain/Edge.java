@@ -1,6 +1,6 @@
 package com.example.PathFinder.domain;
 
-import util.DistanceCalculator;
+import com.example.PathFinder.util.DistanceCalculator;
 
 public class Edge {
     private Node from;
