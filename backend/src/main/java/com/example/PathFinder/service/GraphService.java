@@ -1,7 +1,7 @@
 package com.example.PathFinder.service;
 
 import com.example.PathFinder.Graph;
-import com.example.PathFinder.domain.Node;
+import com.example.PathFinder.model.Node;
 import com.example.PathFinder.repository.GraphRepository;
 import com.example.PathFinder.util.DistanceCalculator;
 import org.locationtech.jts.geom.Envelope;

@@ -1,7 +1,7 @@
 package com.example.PathFinder;
 
 
-import com.example.PathFinder.domain.Path;
+import com.example.PathFinder.model.Path;
 import com.example.PathFinder.service.PathService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

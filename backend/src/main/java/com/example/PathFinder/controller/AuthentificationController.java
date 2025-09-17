@@ -1,7 +1,7 @@
 package com.example.PathFinder.controller;
 
 import com.example.PathFinder.util.JWTUtility;
-import com.example.PathFinder.domain.LogInCredentials;
+import com.example.PathFinder.model.LogInCredentials;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.User;

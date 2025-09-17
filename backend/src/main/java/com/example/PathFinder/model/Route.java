@@ -1,4 +1,4 @@
-package com.example.PathFinder.domain;
+package com.example.PathFinder.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
