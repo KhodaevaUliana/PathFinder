@@ -1,6 +1,6 @@
 package com.example.PathFinder.repository;
 
-import com.example.PathFinder.domain.Route;
+import com.example.PathFinder.model.Route;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

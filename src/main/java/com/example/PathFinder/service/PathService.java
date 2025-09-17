@@ -1,8 +1,8 @@
 package com.example.PathFinder.service;
 
 import com.example.PathFinder.Graph;
-import com.example.PathFinder.domain.Node;
-import com.example.PathFinder.domain.Path;
+import com.example.PathFinder.model.Node;
+import com.example.PathFinder.model.Path;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

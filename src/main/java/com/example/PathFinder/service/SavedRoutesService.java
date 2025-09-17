@@ -1,7 +1,7 @@
 package com.example.PathFinder.service;
 
 
-import com.example.PathFinder.domain.Route;
+import com.example.PathFinder.model.Route;
 import com.example.PathFinder.repository.SavedRoutesRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.dao.DataIntegrityViolationException;

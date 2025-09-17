@@ -1,7 +1,7 @@
 package com.example.PathFinder.controller;
 
 
-import com.example.PathFinder.domain.Path;
+import com.example.PathFinder.model.Path;
 import com.example.PathFinder.service.PathService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

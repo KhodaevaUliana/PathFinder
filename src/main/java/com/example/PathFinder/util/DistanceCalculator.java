@@ -1,6 +1,6 @@
 package com.example.PathFinder.util;
 
-import com.example.PathFinder.domain.Node;
+import com.example.PathFinder.model.Node;
 
 public class DistanceCalculator {
     public static double calculateDistanceBetweenTwoNodesInMeters(Node firstNode, Node secondNode) {
