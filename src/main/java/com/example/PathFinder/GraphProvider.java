@@ -1,5 +1,6 @@
 package com.example.PathFinder;
 
+import com.example.PathFinder.domain.Path;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 

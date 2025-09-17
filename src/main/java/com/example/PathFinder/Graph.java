@@ -1,5 +1,7 @@
 package com.example.PathFinder;
 
+import com.example.PathFinder.domain.Path;
+
 import java.util.*;
 
 public class Graph {
