@@ -72,4 +72,17 @@ public class SecurityConfig {
         return http.build();
     }
 
+    @Bean
+    @Order(3)
+    public SecurityFilterChain deleteUserSecurityChain(HttpSecurity http) throws Exception {
+        http
+                .cors(Customizer.withDefaults())
+                .securityMatcher("/auth/delete")
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+                .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()));
+
+        return http.build();
+    }
+
 }
