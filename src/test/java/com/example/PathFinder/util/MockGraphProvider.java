@@ -1,4 +1,8 @@
-package com.example.PathFinder;
+package com.example.PathFinder.util;
+
+import com.example.PathFinder.Edge;
+import com.example.PathFinder.Graph;
+import com.example.PathFinder.Node;
 
 import java.util.HashMap;
 import java.util.List;
