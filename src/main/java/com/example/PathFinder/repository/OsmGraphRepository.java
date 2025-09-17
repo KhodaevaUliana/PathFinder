@@ -11,7 +11,9 @@ import java.util.Objects;
 
 @Repository
 public class OsmGraphRepository implements GraphRepository{
-    private static final String OSM_FILE = "monaco-latest.osm.pbf";
+    //private static final String OSM_FILE = "monaco-latest.osm.pbf";
+    //private static final String OSM_FILE = "oberbayern-latest.osm.pbf";
+    private static final String OSM_FILE = "Muenchen.osm.pbf";
     private Graph graph;
 
 
