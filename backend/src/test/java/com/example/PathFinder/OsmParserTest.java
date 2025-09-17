@@ -1,5 +1,7 @@
 package com.example.PathFinder;
 
+import com.example.PathFinder.domain.Edge;
+import com.example.PathFinder.domain.Node;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

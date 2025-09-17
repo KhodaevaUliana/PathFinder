@@ -1,5 +1,6 @@
 package com.example.PathFinder;
 
+import com.example.PathFinder.domain.Node;
 import com.example.PathFinder.domain.Path;
 import com.example.PathFinder.util.MockGraphProvider;
 import org.junit.jupiter.api.*;
