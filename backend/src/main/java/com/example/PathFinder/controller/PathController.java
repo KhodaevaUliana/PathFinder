@@ -3,6 +3,7 @@ package com.example.PathFinder.controller;
 
 import com.example.PathFinder.GraphProvider;
 import com.example.PathFinder.domain.Path;
+import com.example.PathFinder.service.PathService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PathController {
 
+    private final PathService pathService;
+
     @Autowired
-    private GraphProvider graphProvider;
+    public PathController(PathService pathService) {
+        this.pathService = pathService;
+    }
 
     @GetMapping("/route")
     public ResponseEntity<?> getRoute(@RequestParam double startLatitude,
@@ -22,7 +27,7 @@ public class PathController {
                                       @RequestParam double finishLatitude,
                                       @RequestParam double finishLongitude) {
         try {
-            Path path = graphProvider.shortestPathBetweenTwoPoints(startLatitude, startLongitude, finishLatitude, finishLongitude);
+            Path path = pathService.shortestPathBetweenTwoPoints(startLatitude, startLongitude, finishLatitude, finishLongitude);
             return ResponseEntity.ok(path);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
