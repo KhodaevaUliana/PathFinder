@@ -1,8 +1,8 @@
 package com.example.PathFinder.service;
 
-import com.example.PathFinder.Graph;
 import com.example.PathFinder.model.Node;
 import com.example.PathFinder.model.Path;
+import com.example.PathFinder.util.PathFindingAlgorithms;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +29,7 @@ public class PathService {
         }
 
         //replace Dijkstra with A*!!!
-        return Graph.shortestPath(graphService.getGraph(), startNode, finishNode);
+        return PathFindingAlgorithms.shortestPathDijkstra(graphService.getGraph(), startNode, finishNode);
 
     }
 }

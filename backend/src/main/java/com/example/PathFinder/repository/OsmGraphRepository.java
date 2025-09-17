@@ -1,6 +1,6 @@
 package com.example.PathFinder.repository;
 
-import com.example.PathFinder.Graph;
+import com.example.PathFinder.model.Graph;
 import com.example.PathFinder.util.OsmParser;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;

@@ -1,7 +1,7 @@
 package com.example.PathFinder.util;
 
 import com.example.PathFinder.model.Edge;
-import com.example.PathFinder.Graph;
+import com.example.PathFinder.model.Graph;
 import com.example.PathFinder.model.Node;
 
 import java.util.HashMap;
