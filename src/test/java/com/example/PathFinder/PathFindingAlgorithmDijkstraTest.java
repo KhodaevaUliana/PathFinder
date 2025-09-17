@@ -1,16 +1,18 @@
 package com.example.PathFinder;
 
+import com.example.PathFinder.model.Graph;
 import com.example.PathFinder.model.Node;
 import com.example.PathFinder.model.Path;
 import com.example.PathFinder.util.MockGraphProvider;
+import com.example.PathFinder.util.PathFindingAlgorithms;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.*;
 
-public class GraphTest {
+public class PathFindingAlgorithmDijkstraTest {
     private Graph graph;
-    private Node A, B, C, D, E, F, G;
+    private Node A, B, C, D, E, F, G, X;
 
     @BeforeEach
     public void setUp() {
@@ -21,6 +23,7 @@ public class GraphTest {
         E = new Node("5", 48.0, 13.0);
         F = new Node("6", 30.0, 50.0);
         G = new Node("7", 30.0, 48.0);
+        X = new Node("10", 0.0, 0.0);
         graph = MockGraphProvider.createSampleGraph();
     }
 
@@ -28,7 +31,7 @@ public class GraphTest {
     public void shortestPathAB() {
         Path result = null;
         try {
-            result = Graph.shortestPath(this.graph, "1", "2");
+            result = PathFindingAlgorithms.shortestPathDijkstra(this.graph, A, B);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -40,7 +43,7 @@ public class GraphTest {
     public void shortestPathAE() {
         Path result = null;
         try {
-            result = Graph.shortestPath(this.graph, "1", "5");
+            result = PathFindingAlgorithms.shortestPathDijkstra(this.graph, A, E);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -52,7 +55,7 @@ public class GraphTest {
     public void shortestPathDA() {
         Path result = null;
         try {
-            result = Graph.shortestPath(this.graph, "4", "1");
+            result = PathFindingAlgorithms.shortestPathDijkstra(this.graph, D, A);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -64,7 +67,7 @@ public class GraphTest {
     public void shortestPathEC() {
         Path result = null;
         try {
-            result = Graph.shortestPath(this.graph, "5", "3");
+            result = PathFindingAlgorithms.shortestPathDijkstra(this.graph, E, C);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -76,7 +79,7 @@ public class GraphTest {
     public void shortestPathFail() {
         Path result = null;
         try {
-            result = Graph.shortestPath(this.graph, "12", "1");
+            result = PathFindingAlgorithms.shortestPathDijkstra(this.graph, X, A);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -88,7 +91,7 @@ public class GraphTest {
     public void shortestPathFG() {
         Path result = null;
         try {
-            result = Graph.shortestPath(this.graph, "6", "7");
+            result = PathFindingAlgorithms.shortestPathDijkstra(this.graph, F, G);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -100,7 +103,7 @@ public class GraphTest {
     public void shortestPathAG() {
         Path result = null;
         try {
-            result = Graph.shortestPath(this.graph, "1", "7");
+            result = PathFindingAlgorithms.shortestPathDijkstra(this.graph, A, G);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

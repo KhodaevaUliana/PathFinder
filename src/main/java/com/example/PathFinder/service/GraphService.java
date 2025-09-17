@@ -1,6 +1,6 @@
 package com.example.PathFinder.service;
 
-import com.example.PathFinder.Graph;
+import com.example.PathFinder.model.Graph;
 import com.example.PathFinder.model.Node;
 import com.example.PathFinder.repository.GraphRepository;
 import com.example.PathFinder.util.DistanceCalculator;
