@@ -1,6 +1,6 @@
 package com.example.PathFinder.repository;
 
-import com.example.PathFinder.Route;
+import com.example.PathFinder.domain.Route;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.ArrayList;
 import java.util.Optional;
 
-public interface RouteRepository extends JpaRepository<Route, Long> {
+public interface SavedRoutesRepository extends JpaRepository<Route, Long> {
 
     Optional<Route> findByUsernameAndRouteName(String username, String routeName);
 
