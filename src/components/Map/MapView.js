@@ -19,7 +19,7 @@ function MapView({ points, route, onMapClick }) {
   const positions = route.map(node => [node.latitude, node.longitude]);
 
   return (
-    <MapContainer center={[43.735, 7.42]} zoom={15} style={{ height: "70vh", width: "100%" }}>
+    <MapContainer center={[48.1351, 11.582]} zoom={15} style={{ height: "70vh", width: "100%" }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="&copy; OpenStreetMap contributors"
