@@ -57,4 +57,12 @@ public class AuthenticationService {
         }
     }
 
+    //delete a user
+    public void deleteUser(String username) {
+        if (!userDetailsManager.userExists(username)) {
+            throw new IllegalArgumentException("User does not exist.");
+        }
+        userDetailsManager.deleteUser(username);
+    }
+
 }

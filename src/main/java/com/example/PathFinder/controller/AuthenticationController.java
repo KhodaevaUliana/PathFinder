@@ -5,6 +5,7 @@ import com.example.PathFinder.util.JWTUtility;
 import com.example.PathFinder.model.LogInCredentials;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -49,6 +50,19 @@ public class AuthenticationController {
             return ResponseEntity.internalServerError().body(error.getMessage());
         }
     }
+
+    //delete a user
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> deleteUser(Authentication authentication) {
+        String username = authentication.getName();
+        try {
+            authenticationService.deleteUser(username);
+            return ResponseEntity.ok().body("User successfully deleted");
+        } catch (Exception error) {
+            return ResponseEntity.internalServerError().body(error.getMessage());
+        }
+    }
+
 
 
 }
