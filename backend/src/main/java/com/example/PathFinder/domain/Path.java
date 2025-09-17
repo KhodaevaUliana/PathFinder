@@ -1,8 +1,10 @@
-package com.example.PathFinder;
+package com.example.PathFinder.domain;
+
+import com.example.PathFinder.Node;
 
 import java.util.*;
 
-public class Path {
+public final class Path {
     private List<Node> nodes;
     private double distance;
 

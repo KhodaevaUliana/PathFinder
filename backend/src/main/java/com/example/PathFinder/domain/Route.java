@@ -1,6 +1,5 @@
 package com.example.PathFinder.domain;
 
-import com.example.PathFinder.Path;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcTypeCode;

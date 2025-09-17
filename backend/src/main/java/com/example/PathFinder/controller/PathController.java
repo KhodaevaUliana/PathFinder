@@ -2,7 +2,7 @@ package com.example.PathFinder.controller;
 
 
 import com.example.PathFinder.GraphProvider;
-import com.example.PathFinder.Path;
+import com.example.PathFinder.domain.Path;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class PathFinderController {
+public class PathController {
 
     @Autowired
     private GraphProvider graphProvider;
