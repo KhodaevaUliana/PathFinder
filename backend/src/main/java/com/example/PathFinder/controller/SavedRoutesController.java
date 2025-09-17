@@ -1,7 +1,7 @@
 package com.example.PathFinder.controller;
 
-import com.example.PathFinder.Route;
-import com.example.PathFinder.service.RouteService;
+import com.example.PathFinder.domain.Route;
+import com.example.PathFinder.service.SavedRoutesService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/saved_routes")
-public class RouteController {
-    private final RouteService routeService;
+public class SavedRoutesController {
+    private final SavedRoutesService routeService;
 
-    public RouteController(RouteService routeService) {
+    public SavedRoutesController(SavedRoutesService routeService) {
         this.routeService = routeService;
     }
 

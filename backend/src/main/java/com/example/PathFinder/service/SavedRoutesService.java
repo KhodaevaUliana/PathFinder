@@ -1,8 +1,8 @@
 package com.example.PathFinder.service;
 
 
-import com.example.PathFinder.Route;
-import com.example.PathFinder.repository.RouteRepository;
+import com.example.PathFinder.domain.Route;
+import com.example.PathFinder.repository.SavedRoutesRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
-public class RouteService {
+public class SavedRoutesService {
 
-    private final RouteRepository routeRepository;
+    private final SavedRoutesRepository routeRepository;
 
-    public RouteService (RouteRepository routeRepository) {
+    public SavedRoutesService(SavedRoutesRepository routeRepository) {
         this.routeRepository = routeRepository;
     }
 
