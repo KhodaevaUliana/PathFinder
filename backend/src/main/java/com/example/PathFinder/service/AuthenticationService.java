@@ -44,7 +44,7 @@ public class AuthenticationService {
         return;
     }
 
-    //log-im
+    //log-in
     public String logIn(LogInCredentials logInCredentials) throws IllegalArgumentException {
         if (!userDetailsManager.userExists(logInCredentials.getUsername())) {
             throw new IllegalArgumentException("Wrong password or username");
