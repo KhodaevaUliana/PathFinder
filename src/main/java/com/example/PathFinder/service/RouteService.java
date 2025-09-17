@@ -3,6 +3,7 @@ package com.example.PathFinder.service;
 
 import com.example.PathFinder.Route;
 import com.example.PathFinder.repository.RouteRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +38,7 @@ public class RouteService {
     }
 
     //delete route (return true if success, false if there was no such a route)
+    @Transactional
     public boolean deleteRoute(String username, String name) {
         if (!routeRepository.existsByUsernameAndRouteName(username, name)) {
             return false;
