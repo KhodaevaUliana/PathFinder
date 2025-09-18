@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="AuthControl/Form refactors, auth-api added">
+    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="Delete user functionality added">
+      <change afterPath="$PROJECT_DIR$/src/components/Map/MapUpdater.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/Auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Auth.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/AuthControl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/AuthControl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/AuthForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/AuthForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/api-auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api-auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Map/MapView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Map/MapView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758199805014</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Delete user functionality added">
+      <option name="closed" value="true" />
+      <created>1758206561465</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1758206561465</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -274,6 +279,7 @@
     <MESSAGE value="Center adjusted: Now we're exploring Munich" />
     <MESSAGE value="Refactored versions of AuthControl/Form created but old versions are still present" />
     <MESSAGE value="AuthControl/Form refactors, auth-api added" />
-    <option name="LAST_COMMIT_MESSAGE" value="AuthControl/Form refactors, auth-api added" />
+    <MESSAGE value="Delete user functionality added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete user functionality added" />
   </component>
 </project>
