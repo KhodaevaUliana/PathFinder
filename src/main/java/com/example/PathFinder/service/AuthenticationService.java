@@ -11,15 +11,20 @@ import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.crypto.SecretKey;
+
 @Service
 public class AuthenticationService {
     private final UserDetailsManager userDetailsManager;
     private final PasswordEncoder passwordEncoder;
+    private final SecretKey jwtSigningKey;
 
     @Autowired
-    public AuthenticationService(UserDetailsManager userDetailsManager, PasswordEncoder passwordEncoder) {
+    public AuthenticationService(UserDetailsManager userDetailsManager,
+                                 PasswordEncoder passwordEncoder, SecretKey jwtSigningKey) {
         this.userDetailsManager = userDetailsManager;
         this.passwordEncoder = passwordEncoder;
+        this.jwtSigningKey = jwtSigningKey;
     }
 
     //sign-up
@@ -51,7 +56,7 @@ public class AuthenticationService {
         }
         UserDetails user = userDetailsManager.loadUserByUsername(logInCredentials.getUsername());
         if (passwordEncoder.matches(logInCredentials.getPassword(), user.getPassword())) {
-            return JWTUtility.generateToken(user.getUsername());
+            return JWTUtility.generateToken(user.getUsername(), jwtSigningKey);
         } else {
             throw new IllegalArgumentException("Wrong password or username");
         }
