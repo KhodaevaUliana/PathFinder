@@ -1,6 +1,6 @@
 import AuthForm from "./AuthForm";
 
-export default function AuthControls({ token, onLogin, onSignup, onLogOut, signUpSuccess }) {
+export default function AuthControl({ token, onLogin, onSignup, onLogOut, signUpSuccess }) {
   if (token) {
     return (
       <div>

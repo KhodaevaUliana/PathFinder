@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 import Header from "./components/Header";
-import AuthControl from "./components/Auth/AuthControl";
+import AuthControl from "./components/Auth/AuthControl-2";
 //import SaveRouteControl from "./components/Route/SaveRouteControl";
 import SavedRoutesManager from "./components/Route/SavedRoutesManager";
 import MapView from "./components/Map/MapView";
@@ -11,12 +11,12 @@ import { useRouteManager } from "./components/Route/RouteManager";
 function App() {
   //log in
   const [token, setToken] = useState("");
-  const [signUpSuccess, setSignUpSuccess] = useState(false);
+  //const [signUpSuccess, setSignUpSuccess] = useState(false);
 
   // log in handlers
   const handleLogin = (jwt) => setToken(jwt);
   const handleLogOut = () => setToken("");
-  const handleSignup = () => setSignUpSuccess(true);
+  //const handleSignup = () => setSignUpSuccess(true);
 
   const {
     points, //start and finish
@@ -59,9 +59,9 @@ function App() {
         <AuthControl
           token={token}
           onLogin={handleLogin}
-          onSignup={handleSignup}
+          //onSignup={handleSignup}
           onLogOut={handleLogOut}
-          signUpSuccess={signUpSuccess}
+          //signUpSuccess={signUpSuccess}
         />
       </div>
 

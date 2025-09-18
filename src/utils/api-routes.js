@@ -4,7 +4,7 @@ export async function fetchRoute(start, finish) {
   );
   if (!response.ok) {
      const errorMessage = await response.text();
-     throw new Error(errorMessage);
+     throw new Error(errorMessage||"Failed to fetch the route");
   }
   return response.json();
 }
