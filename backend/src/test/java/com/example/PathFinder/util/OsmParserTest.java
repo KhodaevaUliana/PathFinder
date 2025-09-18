@@ -1,8 +1,7 @@
-package com.example.PathFinder;
+package com.example.PathFinder.util;
 
 import com.example.PathFinder.model.Edge;
 import com.example.PathFinder.model.Node;
-import com.example.PathFinder.util.OsmParser;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -1,10 +1,8 @@
-package com.example.PathFinder;
+package com.example.PathFinder.util;
 
 import com.example.PathFinder.model.Graph;
 import com.example.PathFinder.model.Node;
 import com.example.PathFinder.model.Path;
-import com.example.PathFinder.util.MockGraphProvider;
-import com.example.PathFinder.util.PathFindingAlgorithms;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
