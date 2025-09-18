@@ -23,3 +23,17 @@ export async function signUp(username, password) {
   }
   return response.ok;
 }
+
+export async function deleteUser(token) {
+  const response = await fetch("http://localhost:8080/auth/delete", {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  });
+  if (!response.ok) {
+    const errorMessage = await response.text();
+    throw new Error(errorMessage || "Sign up failed");
+  }
+  return response.ok;
+}

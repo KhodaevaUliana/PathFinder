@@ -11,12 +11,11 @@ import { useRouteManager } from "./components/Route/RouteManager";
 function App() {
   //log in
   const [token, setToken] = useState("");
-  //const [signUpSuccess, setSignUpSuccess] = useState(false);
 
   // log in handlers
   const handleLogin = (jwt) => setToken(jwt);
   const handleLogOut = () => setToken("");
-  //const handleSignup = () => setSignUpSuccess(true);
+
 
   const {
     points, //start and finish

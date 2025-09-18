@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="Refactored versions of AuthControl/Form created but old versions are still present">
+    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="AuthControl/Form refactors, auth-api added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Auth/Auth.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Auth.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/AuthControl-2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Auth/AuthControl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/AuthControl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/AuthForm-2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Auth/AuthForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/AuthForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/api-auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api-auth.js" afterDir="false" />
     </list>
@@ -242,7 +239,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758199033802</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="AuthControl/Form refactors, auth-api added">
+      <option name="closed" value="true" />
+      <created>1758199805014</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1758199805014</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -268,6 +273,7 @@
     <MESSAGE value="layout adjustments + UI improved" />
     <MESSAGE value="Center adjusted: Now we're exploring Munich" />
     <MESSAGE value="Refactored versions of AuthControl/Form created but old versions are still present" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored versions of AuthControl/Form created but old versions are still present" />
+    <MESSAGE value="AuthControl/Form refactors, auth-api added" />
+    <option name="LAST_COMMIT_MESSAGE" value="AuthControl/Form refactors, auth-api added" />
   </component>
 </project>

@@ -1,7 +1,8 @@
 import "./Auth.css";
 
 function AuthForm ({token, handleSubmit, username, password,
-                   onChangeUsername, onChangePassword, onLogOut, error, signUpSuccess }) {
+                   onChangeUsername, onChangePassword, onLogOut, error, signUpSuccess,
+                   deleteAttempt, onDeleteAttempt, onDeleteCancel, handleDelete}) {
   if (token) {
     return (
       <div>
@@ -9,6 +10,15 @@ function AuthForm ({token, handleSubmit, username, password,
         <button onClick={onLogOut} className="auth-button">
           Log out
         </button>
+        <button onClick={onDeleteAttempt} className="delete-button">
+          Delete account
+        </button>
+      {deleteAttempt &&
+        <div>
+          <h2 className="confirm-message"> Are you sure to delete your account? </h2>
+          <button className="delete-button" onClick={handleDelete}> Yes </button>
+          <button className="cancel-delete-button"  onClick={onDeleteCancel}> No </button>
+        </div>}
       </div>
     );
   } else {
@@ -16,12 +26,12 @@ function AuthForm ({token, handleSubmit, username, password,
     <div>
       <div>
         <label className="form-row">Username</label>
-        <input type="text" value={username} onChange={onChangeUsername}/>
+        <input type="text" value={username} onChange={onChangeUsername} autoComplete="off"/>
       </div>
 
       <div>
         <label className="form-row">Password</label>
-        <input type="password" value={password} onChange={onChangePassword}/>
+        <input type="password" value={password} onChange={onChangePassword} autoComplete="off"/>
         {error && <p className="error">Error: {error}</p>}
       </div>
 
