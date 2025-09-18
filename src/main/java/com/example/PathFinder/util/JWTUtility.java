@@ -20,15 +20,6 @@ public class JWTUtility {
                 .compact();
     }
 
-    public static String parseAndValidateToken (String token) {
-        return Jwts.parserBuilder()
-                .setSigningKey(key)
-                .build()
-                .parseClaimsJws(token)
-                .getBody()
-                .getSubject();
-    }
-
     public static SecretKey getKey() {
         return key;
     }

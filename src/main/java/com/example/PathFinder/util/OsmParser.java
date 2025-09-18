@@ -25,9 +25,6 @@ public class OsmParser {
 
     }
 
-
-
-
     private void initializeNodes() {
         InputStream input = null;
         try {
