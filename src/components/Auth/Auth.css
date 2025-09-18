@@ -27,3 +27,10 @@ input {
   width: 100%;
   box-sizing: border-box;
 }
+
+.sign-up-success {
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+  color: magenta;
+}

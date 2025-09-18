@@ -1,21 +1,53 @@
 import AuthForm from "./AuthForm";
+import {useState} from "react";
+import { logIn, signUp } from "../../utils/api-auth";
 
-export default function AuthControl({ token, onLogin, onSignup, onLogOut, signUpSuccess }) {
-  if (token) {
-    return (
-      <div>
-        <h2>You are logged in</h2>
-        <button onClick={onLogOut} className="auth-button">
-          Log out
-        </button>
-      </div>
-    );
+function AuthControl({ token, onLogin, handleLogOut }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [signUpSuccess, setSignUpSuccess] = useState(false);
+
+  const handleSubmit = async (mode) => {
+    setError("");
+    setSignUpSuccess(false);
+    try {
+      if (mode === "signup") {
+        const response = await signUp(username, password);
+        setSignUpSuccess(true);
+      } else { //sign-up mode
+        const token = await logIn(username, password);
+        onLogin(token);
+      }
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  const onChangeUsername = (e) => setUsername(e.target.value);
+  const onChangePassword = (e) => setPassword(e.target.value);
+
+  const onLogOut = () => {
+    setUsername("");
+    setPassword("");
+    handleLogOut();
   }
 
   return (
-    <div>
-      <AuthForm onLogin={onLogin} onSignup={onSignup} />
-      {signUpSuccess && <p className="error">You've signed up successfully</p>}
-    </div>
+    <AuthForm
+      token={token}
+      handleSubmit={handleSubmit}
+      username={username}
+      password={password}
+      onChangeUsername={onChangeUsername}
+      onChangePassword={onChangePassword}
+      onLogOut={onLogOut}
+      error={error}
+      signUpSuccess={signUpSuccess}
+    />
   );
+
+
 }
+
+export default AuthControl;

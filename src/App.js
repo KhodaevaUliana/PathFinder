@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 import Header from "./components/Header";
-import AuthControl from "./components/Auth/AuthControl-2";
+import AuthControl from "./components/Auth/AuthControl";
 //import SaveRouteControl from "./components/Route/SaveRouteControl";
 import SavedRoutesManager from "./components/Route/SavedRoutesManager";
 import MapView from "./components/Map/MapView";
@@ -60,7 +60,7 @@ function App() {
           token={token}
           onLogin={handleLogin}
           //onSignup={handleSignup}
-          onLogOut={handleLogOut}
+          handleLogOut={handleLogOut}
           //signUpSuccess={signUpSuccess}
         />
       </div>

@@ -1,50 +1,27 @@
-import { useState } from "react";
 import "./Auth.css";
 
-export default function AuthForm({ onLogin, onSignup }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-
-  const handleSubmit = async (mode) => {
-    setError("");
-
-    const url =
-      mode === "login" ? "http://localhost:8080/auth/login" : "http://localhost:8080/auth/signup";
-
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
-
-      if (!response.ok) {
-        const message = await response.text();
-        throw new Error(message || `${mode} failed`);
-      }
-
-      const data = await response.text(); // JWT token for login
-      if (mode === "login") {
-        onLogin(data);
-      } else {
-        onSignup();
-      }
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  return (
+function AuthForm ({token, handleSubmit, username, password,
+                   onChangeUsername, onChangePassword, onLogOut, error, signUpSuccess }) {
+  if (token) {
+    return (
+      <div>
+        <h2>You are logged in</h2>
+        <button onClick={onLogOut} className="auth-button">
+          Log out
+        </button>
+      </div>
+    );
+  } else {
+    return (
     <div>
       <div>
         <label className="form-row">Username</label>
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
+        <input type="text" value={username} onChange={onChangeUsername}/>
       </div>
 
       <div>
         <label className="form-row">Password</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+        <input type="password" value={password} onChange={onChangePassword}/>
         {error && <p className="error">Error: {error}</p>}
       </div>
 
@@ -56,6 +33,10 @@ export default function AuthForm({ onLogin, onSignup }) {
           Sign up
         </button>
       </div>
+      {signUpSuccess && <p className="sign-up-success"> You've successfully signed up </p>}
     </div>
-  );
+    );
+  }
 }
+
+export default AuthForm;

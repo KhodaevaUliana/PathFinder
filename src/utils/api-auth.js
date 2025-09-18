@@ -8,7 +8,7 @@ export async function logIn(username, password) {
     const errorMessage = await response.text();
     throw new Error(errorMessage || "Log in failed");
   }
-  return response.json();
+  return response.text();
 }
 
 export async function signUp(username, password) {
