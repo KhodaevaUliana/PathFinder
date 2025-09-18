@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="Delete user functionality added">
-      <change afterPath="$PROJECT_DIR$/src/components/Map/MapUpdater.js" afterDir="false" />
+    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="Added dynamical map render (map's center is either the start of the route or the default value)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Map/MapView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Map/MapView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +250,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758206561465</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added dynamical map render (map's center is either the start of the route or the default value)">
+      <option name="closed" value="true" />
+      <created>1758209410878</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1758209410878</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -280,6 +286,7 @@
     <MESSAGE value="Refactored versions of AuthControl/Form created but old versions are still present" />
     <MESSAGE value="AuthControl/Form refactors, auth-api added" />
     <MESSAGE value="Delete user functionality added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete user functionality added" />
+    <MESSAGE value="Added dynamical map render (map's center is either the start of the route or the default value)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added dynamical map render (map's center is either the start of the route or the default value)" />
   </component>
 </project>
