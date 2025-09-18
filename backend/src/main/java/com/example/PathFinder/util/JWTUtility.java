@@ -9,19 +9,14 @@ import java.util.Date;
 
 public class JWTUtility {
 
-    private static final SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
-    public static String generateToken(String username) {
+    public static String generateToken(String username, SecretKey key) {
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 36000000)) // 10 hours
                 .signWith(key)
                 .compact();
-    }
-
-    public static SecretKey getKey() {
-        return key;
     }
 
 }
