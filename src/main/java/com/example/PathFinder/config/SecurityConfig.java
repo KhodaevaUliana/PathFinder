@@ -39,6 +39,8 @@ public class SecurityConfig {
         manager.setAuthoritiesByUsernameQuery(
                 "SELECT username, 'ROLE_USER' FROM users WHERE username = ?"
         );
+        manager.setDeleteUserSql("DELETE FROM users WHERE username = ?");
+        manager.setDeleteUserAuthoritiesSql("DELETE FROM users WHERE 1=0 AND username = ?");;
 
         return manager;
     }
