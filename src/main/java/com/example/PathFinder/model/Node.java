@@ -57,11 +57,19 @@ public class Node {
                 '}';
     }
 
+    private double round6(double value) {
+        return Math.round(value * 1_000_000.0) / 1_000_000.0;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Node node)) return false;
-        return Double.compare(latitude, node.latitude) == 0 && Double.compare(longitude, node.longitude) == 0 && Objects.equals(id, node.id);
+
+        return Objects.equals(id, node.id)
+                && round6(latitude) == round6(node.latitude)
+                && round6(longitude) == round6(node.longitude);
     }
+
 
     @Override
     public int hashCode() {

@@ -32,7 +32,10 @@ public final class Path {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Path path)) return false;
-        return Double.compare(distance, path.distance) == 0 && Objects.equals(nodes, path.nodes);
+        double tolerance = 0.001; // 0.1%
+        if (Math.abs(this.distance - path.distance) > tolerance * Math.max(this.distance, path.distance))
+           return false;
+        return Objects.equals(nodes, path.nodes);
     }
 
     @Override
