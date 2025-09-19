@@ -2,6 +2,8 @@ package com.example.PathFinder.model;
 
 import com.example.PathFinder.util.DistanceCalculator;
 
+import java.util.Objects;
+
 public class Edge {
     private Node from;
     private Node to;
@@ -52,5 +54,16 @@ public class Edge {
                 ", to=" + to +
                 ", distance=" + distance +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Edge edge)) return false;
+        return Double.compare(distance, edge.distance) == 0 && Objects.equals(from, edge.from) && Objects.equals(to, edge.to);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(from, to, distance);
     }
 }
