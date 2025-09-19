@@ -3,12 +3,12 @@ package com.example.PathFinder.util;
 import com.example.PathFinder.model.Edge;
 import com.example.PathFinder.model.Node;
 import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.*;
 
 public class OsmParserTest {
-    private final String path = "src/main/resources/monaco-latest.osm.pbf";
+    private final String path = "src/test/resources/test-map.osm.pbf";
     private final OsmParser parser = new OsmParser(path);;
 
 
@@ -16,7 +16,7 @@ public class OsmParserTest {
     public void getNodes() {
         int numOfNodes = parser.getNodes().size();
         System.out.println("Number of nodes: " + numOfNodes);
-        assertEquals(true, numOfNodes > 0);
+        assertTrue(numOfNodes > 0);
     }
 
    @Test
