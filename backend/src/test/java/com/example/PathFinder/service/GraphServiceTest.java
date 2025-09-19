@@ -13,10 +13,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.HashMap;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -29,8 +27,8 @@ public class GraphServiceTest {
     //Nodes for our Mock Graph
     private Node marienplatz = new Node(1, 48.1371, 11.5754);
     private Node chinesischerTurm = new Node(2, 48.1585, 11.6035);
-    private Node flughafen = new Node(2, 48.3538, 11.7861);
-    private Node nearMarienplatz = new Node(2, 48.137110, 11.575410);
+    private Node flughafen = new Node(3, 48.3538, 11.7861);
+    private Node nearMarienplatz = new Node(4, 48.137110, 11.575410);
 
     @BeforeEach
     public void setUp() {
@@ -55,7 +53,25 @@ public class GraphServiceTest {
         assertTrue(returnedGraph.getAdjacencyList().containsKey(marienplatz));
         assertTrue(returnedGraph.getAdjacencyList().containsKey(flughafen));
         assertTrue(returnedGraph.getAdjacencyList().containsValue(List.of(new Edge(flughafen, marienplatz))));
-        assertTrue(!returnedGraph.getAdjacencyList().containsValue(List.of(new Edge(flughafen, nearMarienplatz))));
+        assertFalse(returnedGraph.getAdjacencyList().containsValue(List.of(new Edge(flughafen, nearMarienplatz))));
+    }
+
+    @Test
+    public void findNearestNodeReturnsClosestNode() {
+        //the test node is close enough to fit into search envelope
+        assertEquals(marienplatz, graphService.findNearestNode(48.1371, 11.575415));
+    }
+
+    @Test
+    public void findNearestNodeReturnNull() {
+        //this node is far away from all points, so shouldn't fit into search envelope
+        assertNull(graphService.findNearestNode(48.1371, 12));
+    }
+
+    @Test
+    public void findNearestNodePerfectMatch() {
+        //if a node is in a graph, it's the nearest node or itself -- plug in coordinates of Marienplatz
+        assertEquals(marienplatz, graphService.findNearestNode(48.1371, 11.5754));
     }
 
 
