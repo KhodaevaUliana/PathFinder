@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="Added dynamical map render (map's center is either the start of the route or the default value)">
+    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="Secret key moved from JWTUtility">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Map/MapUpdater.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Map/MapUpdater.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Map/MapView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Map/MapView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,11 +260,18 @@
       <option name="project" value="LOCAL" />
       <updated>1758209410878</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Secret key moved from JWTUtility">
+      <option name="closed" value="true" />
+      <created>1758211544745</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1758211544745</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initialization" />
     <MESSAGE value="Added interactivity: now we can click on the map to define start and finish of the route!" />
     <MESSAGE value="UX improved" />
     <MESSAGE value="Added authentification front-end" />
@@ -287,6 +296,7 @@
     <MESSAGE value="AuthControl/Form refactors, auth-api added" />
     <MESSAGE value="Delete user functionality added" />
     <MESSAGE value="Added dynamical map render (map's center is either the start of the route or the default value)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added dynamical map render (map's center is either the start of the route or the default value)" />
+    <MESSAGE value="Secret key moved from JWTUtility" />
+    <option name="LAST_COMMIT_MESSAGE" value="Secret key moved from JWTUtility" />
   </component>
 </project>

@@ -1,17 +1,17 @@
 import { useEffect } from "react";
 import { useMap } from "react-leaflet";
 
-function MapUpdater({ route, defaultCenter }) {
+function MapUpdater({ points, defaultCenter }) {
   const map = useMap();
 
   useEffect(() => {
-    if (route && route.length > 0) {
-      const newCenter = [route[0].latitude, route[0].longitude];
+    if (points && points.length > 0) {
+      const newCenter = [points[0].lat, points[0].lng];
       map.setView(newCenter, map.getZoom());
     } else {
       map.setView(defaultCenter, map.getZoom());
     }
-  }, [route, map, defaultCenter]);
+  }, [points, map, defaultCenter]);
 
   return null;
 }

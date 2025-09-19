@@ -19,7 +19,6 @@ L.Icon.Default.mergeOptions({
 function MapView({ points, route, onMapClick }) {
   const CENTER_DEFAULT = [48.1351, 11.582];
   const positions = route ? route.map(node => [node.latitude, node.longitude]) : [];
-  //const positions = route.map(node => [node.latitude, node.longitude]);
 
   return (
     <MapContainer center={CENTER_DEFAULT} zoom={15} style={{ height: "70vh", width: "100%" }}>
@@ -27,7 +26,7 @@ function MapView({ points, route, onMapClick }) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="&copy; OpenStreetMap contributors"
       />
-      <MapUpdater route={route} defaultCenter={CENTER_DEFAULT} />
+      <MapUpdater points={points} defaultCenter={CENTER_DEFAULT} />
       <ClickHandler onClick={onMapClick} />
       {points.map((pt, idx) => (
         <Marker key={idx} position={[pt.lat, pt.lng]}>
