@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
 
 import java.util.HashMap;
 import java.util.List;
@@ -18,6 +20,7 @@ import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
+@MockitoSettings(strictness = Strictness.LENIENT)
 public class PathServiceTest {
     private PathService pathService;
 
@@ -52,19 +55,44 @@ public class PathServiceTest {
                 .thenReturn(nearMarienplatz);
         when(graphService.findNearestNode(48.1585, 11.6035))
                 .thenReturn(chinesischerTurm);
-        //when(graphService.findNearestNode(48.39515, 11.74457))
-           //     .thenReturn(freising);
+        when(graphService.findNearestNode(40.01, 60.01))
+                .thenReturn(null);
+        when(graphService.findNearestNode(48.39515, 11.74457))
+                .thenReturn(freising);
         pathService = new PathService(graphService);
     }
 
     @Test
     public void shortestPathBetweenTwoPointsReturnsPath() {
         //between "near Marienplatz" and Chinesischer Turm
-        Path returnedPath = pathService.shortestPathBetweenTwoPoints(48.137110, 11.575410,
-                    48.1585, 11.6035);
+        Path returnedPath = pathService.shortestPathBetweenTwoPoints(
+                48.137110, 11.575410,
+                48.1585, 11.6035);
 
         Path expectedPath = new Path(List.of(nearMarienplatz, marienplatz, chinesischerTurm), 3168.53);
         assertTrue(returnedPath.equals(expectedPath));
 
+    }
+
+    @Test
+    public void shortestPathBetweenPointsThrowsArgumentException() {
+        //throw an exception if either start is outside the mao
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            pathService.shortestPathBetweenTwoPoints(
+                    40.01, 60.01,
+                    48.1585, 11.6035);
+        });
+
+    }
+
+    @Test
+    public void shortestPathBetweenPointsNoPathFound() {
+        //path between Marienplatz and Freising in our graph doesn't exist
+        Path returnedPath = pathService.shortestPathBetweenTwoPoints(
+                48.1585, 11.6035,
+                48.39515, 11.74457
+        );
+        assertTrue(returnedPath.getNodes().isEmpty()); //empty path
+        assertEquals(Double.POSITIVE_INFINITY, returnedPath.getDistance()); //infinity as a distance
     }
 }
