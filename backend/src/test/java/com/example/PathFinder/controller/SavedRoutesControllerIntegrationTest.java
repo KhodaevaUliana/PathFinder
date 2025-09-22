@@ -63,9 +63,10 @@ public class SavedRoutesControllerIntegrationTest {
         return requestJson;
     }
 
+    //save 2 routes and fetch their names
     @Test
     @WithMockUser(username = "Ivanov")
-    public void saveRoute() throws Exception {
+    public void saveAndFetchLitOfRoutes() throws Exception {
         //initialize Path
         String requestJson = initializeRoute("first_route");
         //save route
@@ -73,15 +74,8 @@ public class SavedRoutesControllerIntegrationTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(requestJson))
                 .andExpect(status().isOk());
-    }
-
-
-    //add second route and fetch the list of two routes
-    @Test
-    @WithMockUser(username = "Ivanov")
-    public void saveAndFetchListOfRoutes() throws Exception{
         //initialize second route json
-        String requestJson = initializeRoute("second_route");
+        requestJson = initializeRoute("second_route");
         //save the 2nd route
         mockMvc.perform(post("/saved_routes/save")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -93,6 +87,79 @@ public class SavedRoutesControllerIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json("[\"first_route\", \"second_route\"]"));
 
+    }
+
+
+
+    //save one route and fetch it by name
+    @Test
+    @WithMockUser(username = "Petrov")
+    public void fetchRouteByNameSuccess() throws Exception {
+        //initialize Path
+        String requestJson = initializeRoute("first_route");
+        //save route
+        mockMvc.perform(post("/saved_routes/save")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(requestJson))
+                .andExpect(status().isOk());
+        mockMvc.perform(get("/saved_routes/fetch_route_by_name_and_username")
+                        .param("routeName", "first_route")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
+
+    //don't save any routes and try to fetch one
+    @Test
+    @WithMockUser(username = "Sidorov")
+    public void fetchRouteByNameFailNoSaved() throws Exception {
+        mockMvc.perform(get("/saved_routes/fetch_route_by_name_and_username")
+                        .param("routeName", "second_route")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
+    //save a route but try to fetch an non-existent one
+    @Test
+    @WithMockUser(username = "Sidorov")
+    public void fetchRouteByNameFailOneSaved() throws Exception {
+        //initialize Path
+        String requestJson = initializeRoute("first_route");
+        //save route
+        mockMvc.perform(post("/saved_routes/save")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(requestJson))
+                .andExpect(status().isOk());
+        mockMvc.perform(get("/saved_routes/fetch_route_by_name_and_username")
+                        .param("routeName", "second_route")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
+    //save a route and delete
+    @Test
+    @WithMockUser(username = "Kozlov")
+    public void deleteRouteSuccess() throws Exception {
+        //initialize Path
+        String requestJson = initializeRoute("first_route");
+        //save route
+        mockMvc.perform(post("/saved_routes/save")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(requestJson))
+                .andExpect(status().isOk());
+        mockMvc.perform(delete("/saved_routes/delete_route")
+                        .param("routeName", "first_route")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
+
+    //delete an non-existent route
+    @Test
+    @WithMockUser(username = "Kozlov")
+    public void deleteRouteFail() throws Exception {
+        mockMvc.perform(delete("/saved_routes/delete_route")
+                        .param("routeName", "second_route")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
     }
 
 
