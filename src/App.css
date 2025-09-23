@@ -40,7 +40,7 @@
 .container {
   display: grid;
   grid-template-columns: 1fr, 1fr, 1fr, 1fr;
-  grid-template-rows: 35% 65%;
+  grid-template-rows: 40% 60%;
   height: 100vh;
   gap: 10px;
 }
