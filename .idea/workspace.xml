@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="Updated MapUpdater: centering map about a starting point after clicking on it, doesn't throw back to the default center anymore">
+    <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="Header/map space ratio increased, so that all buttons would fit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,11 +275,18 @@
       <option name="project" value="LOCAL" />
       <updated>1758300607202</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Header/map space ratio increased, so that all buttons would fit">
+      <option name="closed" value="true" />
+      <created>1758631700118</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1758631700118</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="UX improved" />
     <MESSAGE value="Added authentification front-end" />
     <MESSAGE value="Adding saving routes feature" />
     <MESSAGE value="Refactored: added components, haven't rewritten App.js yet" />
@@ -303,6 +311,7 @@
     <MESSAGE value="Added dynamical map render (map's center is either the start of the route or the default value)" />
     <MESSAGE value="Secret key moved from JWTUtility" />
     <MESSAGE value="Updated MapUpdater: centering map about a starting point after clicking on it, doesn't throw back to the default center anymore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated MapUpdater: centering map about a starting point after clicking on it, doesn't throw back to the default center anymore" />
+    <MESSAGE value="Header/map space ratio increased, so that all buttons would fit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Header/map space ratio increased, so that all buttons would fit" />
   </component>
 </project>

@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# PathFinder-Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React frontend for a routing app.
+Provides a responsive web interface for calculating routes, 
+managing user accounts, and visualizing routes on a map (powered by Leaflet). 
+Communicates with the Java/Spring backend via REST API.
 
-## Available Scripts
+This repository is only fronend,
+backend can be found [in another repository]([https://github.com/KhodaevaUliana/PathFinder-Backend]),
+full project description is [here]([https://github.com/KhodaevaUliana/PathFinder]).
 
-In the project directory, you can run:
+## Features
+- Interactive map powered by Leaflet: Users can click on the map
+to select the starting and finishing points for route calculation, the calculated route
+will be shown on the map
+- User Authentication: Signup and login functionality with JWT-based authentication.
+- Authorized users can save routes using the SaveRouteForm, 
+which appears each time a user plots a new route.
+- For authorized users: Displays a list of saved routes in a dropdown menu (see SavedRoutesDropdown component). 
+Click on a route’s name, then choose whether to view or delete the route.
+- Flexible map centering: By default, the map centers around München Hauptbahnhof. 
+If a route is displayed or a user has clicked on a starting point, 
+the map centers around the starting point.
+- Error handling: Errors are displayed near the corresponding interface element
+and are shown in red to make them noticeable.
 
-### `npm start`
+## Tech stack
+- React.js
+- Leaflet for the map
+- HTML, CSS
+- JavaScript Fetch API for REST calls
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How to use
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Future improvements
+- Increase test coverage
+- Improve UX design (feedback from users would be appreciated)
