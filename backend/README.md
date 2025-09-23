@@ -6,7 +6,7 @@ user authentication,
 and storing/fetching user routes.
 
 This repository is only for backend, 
-frontend can be found [in another repository]([https://github.com/KhodaevaUliana/PathFinder-Backend]),
+frontend can be found [in another repository]([https://github.com/KhodaevaUliana/PathFinder-Frontend]),
 full project description is [here]([https://github.com/KhodaevaUliana/PathFinder])
 
 ## Features
