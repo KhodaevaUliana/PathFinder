@@ -1,0 +1,32 @@
+.saved-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  height: 35vh;
+}
+
+.save-form {
+  grid-column: 1;
+  align-self: start;
+  justify-self: center;
+  padding: 50px;
+}
+
+.dropdown {
+  grid-column: 2;
+  align-self: start;
+  justify-self: center;
+  padding: 50px;
+}
+
+.login-advertisement {
+  grid-column: 1 /span 2;
+  width: 100%;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  font-family: "Comic-Sans";
+  font-style: italic;
+  font-size: 40px;
+  color: MediumVioletRed;
+}

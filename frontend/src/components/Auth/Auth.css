@@ -1,0 +1,55 @@
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+}
+.auth-button {
+  margin: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+label {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+input {
+  font-size: 16px;
+  padding: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sign-up-success {
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+  color: magenta;
+}
+
+
+.cancel-delete-button {
+  font-size: 18px;
+  color: DarkGreen;
+  font-weight: bold;
+}
+
+.delete-button {
+  font-size: 18px;
+  color: Red;
+  font-weight: bold;
+}
+
+.confirm-message {
+  font-size: 18px;
+  color: DarkRed;
+  font-style: italic;
+}
