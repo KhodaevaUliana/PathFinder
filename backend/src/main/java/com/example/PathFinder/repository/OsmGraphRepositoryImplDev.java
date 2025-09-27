@@ -4,6 +4,7 @@ import com.example.PathFinder.model.Graph;
 import com.example.PathFinder.util.OsmParser;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.net.URISyntaxException;
@@ -11,20 +12,17 @@ import java.util.Objects;
 
 
 @Repository
-public class OsmGraphRepository implements GraphRepository{
-    //private static final String OSM_FILE = "monaco-latest.osm.pbf";
-    //private static final String OSM_FILE = "oberbayern-latest.osm.pbf";
+@Profile("dev")
+public class OsmGraphRepositoryImplDev implements GraphRepository{
+
     @Value("${osm.graph.file:Muenchen.osm.pbf}")
     private String osmFile;
     private Graph graph;
-
-
 
     @PostConstruct
     private void init() {
         this.loadGraph();
     }
-
 
     private void loadGraph() {
         try {
