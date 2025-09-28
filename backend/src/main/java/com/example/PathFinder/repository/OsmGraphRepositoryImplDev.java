@@ -12,7 +12,7 @@ import java.util.Objects;
 
 
 @Repository
-@Profile("dev")
+@Profile({"dev", "test"})
 public class OsmGraphRepositoryImplDev implements GraphRepository{
 
     @Value("${osm.graph.file:Muenchen.osm.pbf}")

@@ -16,7 +16,7 @@ import java.io.FileOutputStream;
 
 
 @Repository
-@Profile("!dev")
+@Profile("!dev & !test")
 public class OsmGraphRepositoryImplProd implements GraphRepository{
 
     @Value("${osm.graph.file}")
