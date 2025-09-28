@@ -3,6 +3,8 @@ os: linux
 files:
   - source: PathFinder-0.0.1-SNAPSHOT.jar
     destination: /home/ec2-user/app
+  - source: scripts/
+    destination: /home/ec2-user/scripts
 hooks:
   AfterInstall:
     - location: scripts/aws-ec2-restart.sh

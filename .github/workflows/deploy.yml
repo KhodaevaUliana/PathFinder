@@ -65,7 +65,7 @@ jobs:
         aws deploy create-deployment \
           --application-name path-finder \
           --deployment-group-name path-finder-deployment-group \
-          --s3-location bucket=path-finder-uliana/backend-code,bundleType=zip,key=deploy.zip \
+          --s3-location bucket=path-finder-uliana,bundleType=zip,key=backend-code/deploy.zip \
           --region eu-central-1
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
