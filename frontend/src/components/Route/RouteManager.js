@@ -6,23 +6,20 @@ export function useRouteManager(token) {
   const [route, setRoute] = useState([]);
   const [distance, setDistance] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
-  const [routeName, setRouteName] = useState("");
   const [newRoutePlot, setNewRoutePlot] = useState(false);
   const [saveRouteSuccess, setSaveRouteSuccess] = useState(false);
 
   const handleMapClick = (latlng) => {
     const newPoint = { lat: latlng.lat, lng: latlng.lng };
-    if (points.length == 1) {
+    if (points.length === 1) {
       setNewRoutePlot(true);
     }
     setPoints(points.length < 2 ? [...points, newPoint] : [newPoint]);
-    //setNewRoutePlot(true);
   };
 
   const handleRefresh = () => {
     setPoints([]);
     setRoute([]);
-    setRouteName("");
     setDistance(null);
     setErrorMessage(null);
     setNewRoutePlot(false);
@@ -54,7 +51,7 @@ export function useRouteManager(token) {
           );
         });
     }
-  }, [points]);
+  }, [points, newRoutePlot]);
 
   //fetch a saved route by name
   const onShowRoute = async (routeName) => {

@@ -13,20 +13,21 @@ function SavedRoutesManager({ token, route, distance, onShowRoute, newRoutePlot,
   const [deleteCandidate, setDeleteCandidate] = useState(null); //name of a route we are trying to delete
   const [errorSave, setErrorSave] = useState(""); //for saveForm
 
-  // fetch the list of saved routes
-  const loadRoutes = async () => {
-    if (!token) return;
-    setErrorDropdown("");
-    try {
-      const routes = await fetchRoutes(token);
-      setRouteNamesArr(routes);
-    } catch (err) {
-      setErrorDropdown(err.message);
-    }
-  };
 
-  //fetch saved routes when token changes (aka a new user logs in)
+  //fetch the list of saved routes when token changes (aka a new user logs in)
   useEffect(() => {
+    if (!token) return;
+
+    const loadRoutes = async () => {
+      setErrorDropdown("");
+      try {
+        const routes = await fetchRoutes(token);
+        setRouteNamesArr(routes);
+      } catch (err) {
+        setErrorDropdown(err.message);
+      }
+    };
+
     loadRoutes();
   }, [token]);
 
@@ -96,6 +97,7 @@ function SavedRoutesManager({ token, route, distance, onShowRoute, newRoutePlot,
         deleteCandidate={deleteCandidate}
         handlePerformDelete={handlePerformDelete}
         handleCancelDelete={handleCancelDelete}
+        errorMessage={errorDropdown}
       />
       </div>
     </div>);
