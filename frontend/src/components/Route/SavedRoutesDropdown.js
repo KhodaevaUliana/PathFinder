@@ -1,6 +1,6 @@
 import "./SavedRoutesDropdown.css";
 
-function SavedRoutesDropdown({ routes, selectedRoute, onSelect, onShow, onDelete, deleteCandidate, handlePerformDelete, handleCancelDelete }) {
+function SavedRoutesDropdown({ routes, selectedRoute, onSelect, onShow, onDelete, deleteCandidate, handlePerformDelete, handleCancelDelete, errorMessage }) {
   return (
     <div>
       <h2 className="savedTitle">Your saved routes</h2>
@@ -26,6 +26,7 @@ function SavedRoutesDropdown({ routes, selectedRoute, onSelect, onShow, onDelete
             </div>}
         </div>
       )}
+      {errorMessage && <h2 className="error">{errorMessage.length > 200 ? "Error: " + errorMessage.slice(0, 50) + "..." : errorMessage}</h2>}
     </div>
   );
 }

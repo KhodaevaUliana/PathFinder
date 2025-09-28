@@ -1,5 +1,5 @@
 import AuthForm from "./AuthForm";
-import {useState, useEffect} from "react";
+import { useState } from "react";
 import { logIn, signUp, deleteUser } from "../../utils/api-auth";
 
 function AuthControl({ token, onLogin, handleLogOut }) {
@@ -14,7 +14,7 @@ function AuthControl({ token, onLogin, handleLogOut }) {
     setSignUpSuccess(false);
     try {
       if (mode === "signup") {
-        const response = await signUp(username, password);
+        await signUp(username, password);
         setSignUpSuccess(true);
       } else { //sign-up mode
         const token = await logIn(username, password);
