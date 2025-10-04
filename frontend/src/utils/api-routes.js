@@ -1,6 +1,6 @@
 export async function fetchRoute(start, finish) {
   const response = await fetch(
-    `http://localhost:8080/route?startLatitude=${start.lat}&startLongitude=${start.lng}&finishLatitude=${finish.lat}&finishLongitude=${finish.lng}`
+    `http://3.122.60.121/route?startLatitude=${start.lat}&startLongitude=${start.lng}&finishLatitude=${finish.lat}&finishLongitude=${finish.lng}`
   );
   if (!response.ok) {
      const errorMessage = await response.text();
