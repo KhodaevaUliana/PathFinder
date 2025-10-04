@@ -8,6 +8,7 @@ import SavedRoutesManager from "./components/Route/SavedRoutesManager";
 import MapView from "./components/Map/MapView";
 import { useRouteManager } from "./components/Route/RouteManager";
 
+//app
 function App() {
   //log in
   const [token, setToken] = useState("");
