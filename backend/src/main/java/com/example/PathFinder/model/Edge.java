@@ -9,6 +9,8 @@ public class Edge {
     private Node to;
     private double distance;
 
+    public Edge() {};
+
     public Edge (Node from, Node to) {
         this.from = from;
         this.to = to;
