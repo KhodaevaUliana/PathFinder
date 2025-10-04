@@ -15,6 +15,7 @@ public class CorsConfigProd {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
+        config.addAllowedOrigin("https://dt9jhckj5x6s6.cloudfront.net");
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         config.setAllowCredentials(true);
