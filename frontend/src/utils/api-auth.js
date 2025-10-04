@@ -1,5 +1,5 @@
 export async function logIn(username, password) {
-  const response = await fetch("http://localhost:8080/auth/login", {
+  const response = await fetch(`${API_URL}/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password }),
@@ -12,7 +12,7 @@ export async function logIn(username, password) {
 }
 
 export async function signUp(username, password) {
-  const response = await fetch("http://localhost:8080/auth/signup", {
+  const response = await fetch(`${API_URL}/auth/signup`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({username, password}),
@@ -25,7 +25,7 @@ export async function signUp(username, password) {
 }
 
 export async function deleteUser(token) {
-  const response = await fetch("http://localhost:8080/auth/delete", {
+  const response = await fetch(`${API_URL}/auth/delete`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,

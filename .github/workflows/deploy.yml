@@ -37,7 +37,7 @@ jobs:
       working-directory: frontend
       run: |
         npm install
-        npm run build
+        NODE_ENV=production npm run build
 
     # 6 Package backend + scripts into a zip for CodeDeploy
     - name: Prepare deployment bundle
