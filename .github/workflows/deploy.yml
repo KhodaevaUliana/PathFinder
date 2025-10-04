@@ -36,6 +36,7 @@ jobs:
     - name: Build Frontend
       working-directory: frontend
       run: |
+        rm -rf build
         npm install
         NODE_ENV=production npm run build
 
