@@ -18,6 +18,7 @@ public class OsmGraphRepositoryImplDev implements GraphRepository{
     @Value("${osm.graph.file:Muenchen.osm.pbf}")
     private String osmFile;
     private Graph graph;
+    //to be upd
 
     @PostConstruct
     private void init() {
