@@ -17,7 +17,7 @@ L.Icon.Default.mergeOptions({
 });
 
 function MapView({ points, route, onMapClick }) {
-  const CENTER_DEFAULT = [48.1351, 11.582];
+  const CENTER_DEFAULT = [51.050407, 13.737262];
   const positions = route ? route.map(node => [node.latitude, node.longitude]) : [];
 
   return (
