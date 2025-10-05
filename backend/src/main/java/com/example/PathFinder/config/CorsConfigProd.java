@@ -16,8 +16,14 @@ public class CorsConfigProd {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.addAllowedOrigin("https://dt9jhckj5x6s6.cloudfront.net");
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
+        config.addAllowedHeader("Content-Type");
+        config.addAllowedHeader("Authorization");
+        config.addAllowedHeader("Accept");
+        config.addAllowedMethod("GET");
+        config.addAllowedMethod("POST");
+        config.addAllowedMethod("PUT");
+        config.addAllowedMethod("DELETE");
+        config.addAllowedMethod("OPTIONS");
         config.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
