@@ -31,11 +31,17 @@ public class AuthenticationController {
         try {
             authenticationService.signUp(logInCredentials);
         } catch (IllegalArgumentException error) {
-            return ResponseEntity.badRequest().body(error.getMessage());
+            return ResponseEntity.badRequest()
+                    .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+                    .body(error.getMessage());
         } catch (Exception error) {
-            return ResponseEntity.internalServerError().body(error.getMessage());
+            return ResponseEntity.internalServerError()
+                    .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+                    .body(error.getMessage());
         }
-        return ResponseEntity.ok("User created successfully.");
+        return ResponseEntity.ok()
+                .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+                .body("User created successfully.");
     }
 
     //log in -- get a JWT token!
@@ -43,11 +49,17 @@ public class AuthenticationController {
     public ResponseEntity<String> logIn (@RequestBody LogInCredentials logInCredentials) {
         try {
             String token = authenticationService.logIn(logInCredentials);
-            return ResponseEntity.ok(token);
+            return ResponseEntity.ok()
+                    .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+                    .body(token);
         } catch (IllegalArgumentException error) {
-            return ResponseEntity.badRequest().body(error.getMessage());
+            return ResponseEntity.badRequest()
+                    .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+                    .body(error.getMessage());
         } catch (Exception error) {
-            return ResponseEntity.internalServerError().body(error.getMessage());
+            return ResponseEntity.internalServerError()
+                    .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+                    .body(error.getMessage());
         }
     }
 
@@ -57,9 +69,13 @@ public class AuthenticationController {
         String username = authentication.getName();
         try {
             authenticationService.deleteUser(username);
-            return ResponseEntity.ok().body("User successfully deleted");
+            return ResponseEntity.ok()
+                    .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+                    .body("User successfully deleted");
         } catch (Exception error) {
-            return ResponseEntity.internalServerError().body(error.getMessage());
+            return ResponseEntity.internalServerError()
+                    .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+                    .body(error.getMessage());
         }
     }
 

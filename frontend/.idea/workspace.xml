@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="098220e4-45ad-4e01-b5d7-5e207c7528f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/com/example/PathFinder/config/JWTConfigProd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/example/PathFinder/config/JWTConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/example/PathFinder/config/JWTConfigDev.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/example/PathFinder/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/example/PathFinder/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/example/PathFinder/controller/SavedRoutesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/com/example/PathFinder/controller/SavedRoutesController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

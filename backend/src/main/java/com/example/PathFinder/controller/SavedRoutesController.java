@@ -26,9 +26,13 @@ public class SavedRoutesController {
         route.setUsername(username);
         try {
             routeService.saveRoute(route);
-            return ResponseEntity.ok("The route was successfully saved");
+            return ResponseEntity.ok()
+                    .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+                    .body("The route was successfully saved");
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest()
+                    .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+                    .body(e.getMessage());
         }
     }
 
@@ -38,9 +42,13 @@ public class SavedRoutesController {
         String username = authentication.getName();
         try {
             ArrayList<String> routesNames = routeService.fetchRouteNamesByUsername(username);
-            return ResponseEntity.ok().body(routesNames);
+            return ResponseEntity.ok()
+                    .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+                    .body(routesNames);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest()
+                    .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+                    .build();
         }
     }
 
@@ -50,9 +58,13 @@ public class SavedRoutesController {
         String username = authentication.getName();
         Route route = routeService.fetchRouteByUsernameAndName(username, routeName);
         if (route == null) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.notFound()
+                    .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+                    .build();
         } else {
-            return ResponseEntity.ok().body(route);
+            return ResponseEntity.ok()
+                    .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+                    .body(route);
         }
     }
 
@@ -62,9 +74,13 @@ public class SavedRoutesController {
         String username = authentication.getName();
         boolean deleted = routeService.deleteRoute(username, routeName);
         if (deleted) {
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok()
+                    .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+                    .build();
         } else {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.notFound()
+                    .header("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate")
+                    .build();
         }
     }
 }
