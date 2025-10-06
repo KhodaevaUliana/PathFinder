@@ -33,7 +33,9 @@ export async function fetchRoutes(token) {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
-    }
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
   });
   if (!response.ok) {
     const errorMessage = await response.text();
