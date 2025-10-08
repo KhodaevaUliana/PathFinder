@@ -34,35 +34,35 @@ function App() {
 
   return (
     <div className="container">
-      <Header
-        points={points}
-        distance={distance}
-        errorMessage={errorMessage}
-        onRefresh={handleRefresh}
-      />
-
-
-
-      <div className="saved-routes-manager">
-        <SavedRoutesManager
-          token={token}
-          route={route}
+      <div className="sidebar">
+        <Header
+          points={points}
           distance={distance}
-          onShowRoute={onShowRoute}
-          newRoutePlot={newRoutePlot}
-          saveRouteSuccess={saveRouteSuccess}
-          setSaveRouteSuccess={setSaveRouteSuccess}
+          errorMessage={errorMessage}
+          onRefresh={handleRefresh}
         />
-      </div>
 
-      <div className="login">
-        <AuthControl
-          token={token}
-          onLogin={handleLogin}
-          //onSignup={handleSignup}
-          handleLogOut={handleLogOut}
-          //signUpSuccess={signUpSuccess}
-        />
+
+
+        <div className="saved-routes-manager">
+          <SavedRoutesManager
+            token={token}
+            route={route}
+            distance={distance}
+            onShowRoute={onShowRoute}
+            newRoutePlot={newRoutePlot}
+            saveRouteSuccess={saveRouteSuccess}
+            setSaveRouteSuccess={setSaveRouteSuccess}
+          />
+        </div>
+
+        <div className="login">
+          <AuthControl
+            token={token}
+            onLogin={handleLogin}
+            handleLogOut={handleLogOut}
+          />
+        </div>
       </div>
 
       <div className="map">
