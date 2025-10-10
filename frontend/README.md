@@ -15,7 +15,7 @@ will be shown on the map
 which appears each time a user plots a new route.
 - For authorized users: Displays a list of saved routes in a dropdown menu (see SavedRoutesDropdown component). 
 Click on a route’s name, then choose whether to view or delete the route.
-- Flexible map centering: By default, the map centers around München Hauptbahnhof. 
+- Flexible map centering: By default, the map centers around Dresdener Altstadt. 
 If a route is displayed or a user has clicked on a starting point, 
 the map centers around the starting point.
 - Error handling: Errors are displayed near the corresponding interface element
