@@ -25,6 +25,7 @@ input {
   font-size: 16px;
   padding: 5px;
   width: 100%;
+  max-width: 250px;
   box-sizing: border-box;
 }
 

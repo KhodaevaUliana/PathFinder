@@ -9,7 +9,7 @@ function SaveRouteForm({ token, route, routeName, setRouteName, newRoutePlot, on
 
   return (
     <div>
-        <form onSubmit={onSave}>
+        <form className="save-form" onSubmit={onSave}>
           <label>Name this route</label>
           <input type="text" value={routeName} onChange={e => setRouteName(e.target.value)} />
           <button type="submit" className="save-button">Save route</button>
