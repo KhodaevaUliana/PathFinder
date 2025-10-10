@@ -5,9 +5,6 @@ Provides RESTful APIs for route calculation,
 user authentication,
 and storing/fetching user routes.
 
-This repository is only for backend, 
-frontend can be found [in another repository]([https://github.com/KhodaevaUliana/PathFinder-Frontend]),
-full project description is [here]([https://github.com/KhodaevaUliana/PathFinder])
 
 ## Features
 - Use data from Open Street Map to build a graph
@@ -39,10 +36,8 @@ full project description is [here]([https://github.com/KhodaevaUliana/PathFinder
 - Rest API
 - JUnit and Testcontainers
 
-## How to use
 
 ## Future improvements
 - Increase efficiency by replacing Dijkstra’s algorithm with A*-algorithm.
-- Move sensitive information out of application.properties and use environment variables instead.
 
 
