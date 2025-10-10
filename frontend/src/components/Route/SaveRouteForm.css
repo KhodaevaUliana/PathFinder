@@ -2,12 +2,12 @@
   font-style: italic;
 }
 
-label {
+.save-form label {
   font-size: 18px;
   margin-bottom: 5px;
 }
 
-input {
+.save-form input {
   font-size: 16px;
   padding: 5px;
   width: 100%;
@@ -15,8 +15,10 @@ input {
 }
 
 .save-button {
-  margin: 10px;
   font-weight: bold;
   font-size: 18px;
   color: black;
+  max-width: 250px;
 }
+
+

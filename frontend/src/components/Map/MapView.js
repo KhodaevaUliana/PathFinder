@@ -21,7 +21,7 @@ function MapView({ points, route, onMapClick }) {
   const positions = route ? route.map(node => [node.latitude, node.longitude]) : [];
 
   return (
-    <MapContainer center={CENTER_DEFAULT} zoom={15} style={{ height: "70vh", width: "100%" }}>
+    <MapContainer center={CENTER_DEFAULT} zoom={15} style={{ height: "100vh", width: "100%" }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="&copy; OpenStreetMap contributors"

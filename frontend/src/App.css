@@ -39,43 +39,84 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr, 1fr, 1fr, 1fr;
-  grid-template-rows: 40% 60%;
+  grid-template-columns: minmax(220px, 1fr) 2fr;
   height: 100vh;
   gap: 10px;
 }
 
-.header {
-  grid-column: 1;
-  grid-row: 1;
-  align-items: left;
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
   padding: 20px;
+}
+
+
+.header {
+  flex: 0 0 auto;
+  text-align: center;
+  padding: 10px;
 }
 
 
 .saved-routes-manager {
-  grid-column: 2 /span 2;
-  grid-row: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 20px;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  min-height: 0;
 }
 
 .login {
-  grid-column: 4;
-  grid-row: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 20px;
+  flex: 0 0 auto;
+  padding: 20px 0 40px;
 }
 
 
 .map {
-  grid-column: 1 / span 4;
-  grid-row: 2;
+  height: 100vh;
 }
+
+/*mobile layout*/
+@media (max-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "map"
+      "saved"
+      "login";
+    grid-template-rows: auto 1fr auto auto;
+    height: 100vh;
+  }
+
+  .sidebar {
+    display: contents;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .saved-routes-manager {
+    grid-area: saved;
+    min-height: 15vh;
+    overflow-y: auto;
+  }
+
+  .map {
+    grid-area: map;
+    height: 100%;
+    min-height: 40vh;
+    overflow: hidden;
+  }
+
+  .login {
+    grid-area: login;
+    overflow-y: auto;
+  }
+}
+
 
 form {
   display: flex;
