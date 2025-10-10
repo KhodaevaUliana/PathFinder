@@ -3,6 +3,13 @@
   font-size: 30px;
 }
 
+@media (max-width: 768px) {
+  .title {
+    font-family: 'Comic Sans';
+    font-size: 25px;
+  }
+}
+
 .refresh-button {
   margin: 10px;
   color: magenta;

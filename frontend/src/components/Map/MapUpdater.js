@@ -13,6 +13,7 @@ function MapUpdater({ points, defaultCenter }) {
     }
   }, [points, map, defaultCenter]);
 
+
   return null;
 }
 

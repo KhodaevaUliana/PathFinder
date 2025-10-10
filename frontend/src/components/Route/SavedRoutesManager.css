@@ -29,3 +29,9 @@
   font-size: 30px;
   color: MediumVioletRed;
 }
+
+@media (max-width: 768px) {
+  .login-advertisement {
+    font-size: 25px;
+  }
+}
