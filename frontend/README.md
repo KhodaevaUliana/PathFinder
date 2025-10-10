@@ -5,9 +5,6 @@ Provides a responsive web interface for calculating routes,
 managing user accounts, and visualizing routes on a map (powered by Leaflet). 
 Communicates with the Java/Spring backend via REST API.
 
-This repository is only fronend,
-backend can be found [in another repository]([https://github.com/KhodaevaUliana/PathFinder-Backend]),
-full project description is [here]([https://github.com/KhodaevaUliana/PathFinder]).
 
 ## Features
 - Interactive map powered by Leaflet: Users can click on the map
@@ -30,7 +27,6 @@ and are shown in red to make them noticeable.
 - HTML, CSS
 - JavaScript Fetch API for REST calls
 
-## How to use
 
 ## Future improvements
 - Increase test coverage
