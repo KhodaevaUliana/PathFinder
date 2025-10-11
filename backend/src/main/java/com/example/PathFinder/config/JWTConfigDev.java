@@ -12,7 +12,7 @@ import javax.crypto.SecretKey;
 
 
 @Configuration
-@Profile("dev")
+@Profile({"dev", "test"})
 public class JWTConfigDev {
 
     @Bean

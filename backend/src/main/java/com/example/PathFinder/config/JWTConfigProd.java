@@ -11,7 +11,7 @@ import javax.crypto.SecretKey;
 import java.util.Base64;
 
 @Configuration
-@Profile("!dev")
+@Profile("!dev & !test")
 public class JWTConfigProd {
 
     @Bean
