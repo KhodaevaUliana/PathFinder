@@ -1,5 +1,5 @@
 # PathFinder
-A routing app that calculates routes between two points in Dresden, with the ability for authorized users to save and fetch routes. Full-stack project with Java/Spring backend and React frontend. Click [here](https://pathfinder.khodaeva.com) to test!
+A routing app that calculates routes between two points in Dresden, with the ability for authorized users to save and fetch routes. Full-stack project with Java/Spring backend and React frontend. Click [here](https://pathfinder.khodaeva.com) to test! **[UPD: currently disabled, as AWS usage incurred considerable costs]**
 
 ![Demo](https://github.com/KhodaevaUliana/PathFinder/blob/main/Secondattempt-ezgif.com-video-to-gif-converter.gif)
 
